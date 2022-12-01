@@ -1,0 +1,15 @@
+# object
+*.o
+
+# lib
+*.a
+mlx
+
+# exec file
+cub3D
+
+# debug
+*.dSYM
+
+# swap
+*.swp
