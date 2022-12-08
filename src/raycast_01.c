@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 19:43:43 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/08 20:12:05 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/08 21:02:49 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ static void	calc_dist(t_info *info)
 			info->raycast.map_y += info->raycast.step_y;
 			info->raycast.side = 1;
 		}
-		if (g_world_map[info->raycast.map_x][info->raycast.map_y] > 0)
+		if (g_world_map[info->raycast.map_y][info->raycast.map_x] > 0)
 			info->raycast.hit = 1;
 	}
 	if (info->raycast.side == 0)

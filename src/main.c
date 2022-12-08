@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 19:23:33 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/08 21:01:29 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/08 21:06:04 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static void	info_init(t_info *info)
 	info->pos_y = 3.0;
 	info->dir_x = 0.0;
 	info->dir_y = 1.0;
-	info->plane_x = 0.66;
+	info->plane_x = -0.66;
 	info->plane_y = 0.0;
 	info->move_speed = 0.5;
 	info->rot_speed = 0.1;
