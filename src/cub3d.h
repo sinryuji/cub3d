@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 21:02:43 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/08 15:48:07 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/08 20:39:48 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 
 # define MAP_WIDTH 24
 # define MAP_HEIGHT 24
-# define WIDTH 720
-# define HEIGHT 640
+#define WIDTH 960
+#define HEIGHT 720
 # define TEX_WIDTH 64
 # define TEX_HEIGHT 64
 
