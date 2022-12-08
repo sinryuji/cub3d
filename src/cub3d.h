@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 21:02:43 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/07 22:25:16 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/08 15:48:07 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,18 @@
 # define TEX_WIDTH 64
 # define TEX_HEIGHT 64
 
-extern int g_world_map[MAP_WIDTH][MAP_HEIGHT];
+extern int	g_world_map[MAP_WIDTH][MAP_HEIGHT];
 
-typedef struct	s_img
+typedef struct s_img
 {
 	void	*img;
 	int		*data;
-	int		sizeLine;
+	int		size_line;
 	int		bpp;
 	int		endian;
 }	t_img;
 
-typedef struct	s_raycast
+typedef struct s_raycast
 {
 	double	camera_x;
 	double	ray_dir_x;
@@ -55,7 +55,7 @@ typedef struct	s_raycast
 	int		side;
 }	t_raycast;
 
-typedef struct	s_draw
+typedef struct s_draw
 {
 	int		line_height;
 	int		draw_start;
@@ -68,11 +68,11 @@ typedef struct	s_draw
 	int		color;
 }	t_draw;
 
-typedef struct	s_info
+typedef struct s_info
 {
 	void				*mlx;	
 	void				*win;
-	struct	s_img		img;
+	struct s_img		img;
 	double				pos_x;
 	double				pos_y;
 	double				dir_x;
@@ -89,7 +89,6 @@ typedef struct	s_info
 
 /* raycast_01.c */
 void	calc(t_info *info);
-
 
 /* raycast_02.c */
 void	calc_texture(t_info *info, int x);

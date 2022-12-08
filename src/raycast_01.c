@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 19:43:43 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/07 22:11:56 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/08 20:12:05 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,14 @@ static void	calc_step(t_info *info)
 	else
 	{
 		info->raycast.step_y = 1;
-		info->raycast.side_dist_x = (info->raycast.map_y + 1.0 - info->pos_y) * \
+		info->raycast.side_dist_y = (info->raycast.map_y + 1.0 - info->pos_y) * \
 									info->raycast.delta_dist_y;
 	}
 }
 
 static void	calc_vector(t_info *info, int x)
 {
-	info->raycast.camera_x = 2 * x / (double)WIDTH - 1;
+	info->raycast.camera_x = (2 * x / (double)WIDTH) - 1;
 	info->raycast.ray_dir_x = info->dir_x + info->plane_x * \
 								info->raycast.camera_x;
 	info->raycast.ray_dir_y = info->dir_y + info->plane_y * \
@@ -55,6 +55,7 @@ static void	calc_vector(t_info *info, int x)
 
 static void	calc_dist(t_info *info)
 {
+	info->raycast.hit = 0;
 	while (info->raycast.hit == 0)
 	{
 		if (info->raycast.side_dist_x < info->raycast.side_dist_y)
@@ -82,12 +83,12 @@ static void	calc_dist(t_info *info)
 
 static void	calc_draw(t_info *info)
 {
-	info->draw.line_height = (int)HEIGHT / info->raycast.perp_wall_dist;
+	info->draw.line_height = (int)(HEIGHT / info->raycast.perp_wall_dist);
 	info->draw.draw_start = -info->draw.line_height / 2 + HEIGHT / 2;
 	if (info->draw.draw_start < 0)
 		info->draw.draw_start = 0;
 	info->draw.draw_end = info->draw.line_height / 2 + HEIGHT / 2;
-	if (info->draw.draw_end > HEIGHT)
+	if (info->draw.draw_end >= HEIGHT)
 		info->draw.draw_end = HEIGHT - 1;
 	if (info->raycast.side == 0)
 		info->draw.wall_x = info->pos_y + \
