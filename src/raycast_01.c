@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 19:43:43 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/08 21:02:49 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/09 17:50:43 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,10 +98,10 @@ static void	calc_draw(t_info *info)
 		info->raycast.perp_wall_dist * info->raycast.ray_dir_x;
 	info->draw.wall_x -= floor(info->draw.wall_x);
 	info->draw.tex_x = (int)(info->draw.wall_x * (double)TEX_WIDTH);
-	if ((info->raycast.side == 0 && info->raycast.ray_dir_x > 0) \
-		|| (info->raycast.side == 1 && info->raycast.ray_dir_y < 0))
+	if ((info->raycast.side == 0 && info->raycast.ray_dir_x < 0) ||
+			(info->raycast.side == 1 && info->raycast.ray_dir_y > 0))
 		info->draw.tex_x = TEX_WIDTH - info->draw.tex_x - 1;
-	info->draw.step = 1.0 + TEX_HEIGHT + info->draw.line_height;
+	info->draw.step = 1.0 * TEX_HEIGHT / info->draw.line_height;
 	info->draw.tex_pos = (info->draw.draw_start - \
 	HEIGHT / 2.0 + info->draw.line_height / 2.0) * info->draw.step;
 }
@@ -118,6 +118,6 @@ void	calc(t_info *info)
 		calc_dist(info);
 		calc_draw(info);
 		calc_texture(info, x);
-		x++;
+		++x;
 	}
 }
