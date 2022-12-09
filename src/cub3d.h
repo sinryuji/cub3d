@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 21:02:43 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/08 20:39:48 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/09 17:13:20 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,37 @@
 
 # include <stdio.h>
 # include <math.h>
+# include <stdlib.h>
 
 # include "../lib/libft/include/libft.h"
 # include "../lib/mlx/mlx.h"
 
-# define MAP_WIDTH 24
-# define MAP_HEIGHT 24
-#define WIDTH 960
-#define HEIGHT 720
-# define TEX_WIDTH 64
-# define TEX_HEIGHT 64
+# define MAP_WIDTH (24)
+# define MAP_HEIGHT (24)
+# define WIDTH (960)
+# define HEIGHT (720)
+# define TEX_WIDTH (64)
+# define TEX_HEIGHT (64)
+
+# define X11_KEY_PRESS (02)
+# define X11_MOUSE_MOVE (06)
+# define X11_WIN_DESTROY (17)
+
+# define KEY_ESC (53)
+# define KEY_A (0)
+# define KEY_S (1)
+# define KEY_D (2)
+# define KEY_W (13)
+# define KEY_LEFT (123)
+# define KEY_RIGHT (124)
 
 extern int	g_world_map[MAP_WIDTH][MAP_HEIGHT];
+
+enum e_map
+{
+	EMPTY,
+	WALL
+};
 
 typedef struct s_img
 {
@@ -81,6 +100,7 @@ typedef struct s_info
 	double				plane_y;
 	double				move_speed;
 	double				rot_speed;
+	double				mouse_speed;
 	int					**buf;
 	int					**texture;
 	struct s_raycast	raycast;
@@ -92,5 +112,12 @@ void	calc(t_info *info);
 
 /* raycast_02.c */
 void	calc_texture(t_info *info, int x);
+
+/* key_hook.c */
+int		key_hook(int key_code, t_info *info);
+int		exit_hook(t_info *info);
+
+/* mouse_hook.c */
+int		mouse_move(int x, int y, t_info *info);
 
 #endif
