@@ -6,27 +6,36 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 21:02:43 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/08 20:39:48 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/09 17:48:23 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
+# include "../lib/libft/include/libft.h"
+# include "../lib/mlx/mlx.h"
 # include <stdio.h>
 # include <math.h>
 
-# include "../lib/libft/include/libft.h"
-# include "../lib/mlx/mlx.h"
-
-# define MAP_WIDTH 24
-# define MAP_HEIGHT 24
-#define WIDTH 960
-#define HEIGHT 720
-# define TEX_WIDTH 64
-# define TEX_HEIGHT 64
+# define MAP_WIDTH (24)
+# define MAP_HEIGHT (24)
+# define WIDTH (960)
+# define HEIGHT (720)
+# define TEX_WIDTH (64)
+# define TEX_HEIGHT (64)
+# define TEXTURE_COUNT (4)
+# define CEILING_COLOR (0xa39586)
+# define FLOOR_COLOR (0x413e3d)
 
 extern int	g_world_map[MAP_WIDTH][MAP_HEIGHT];
+
+enum e_texture {
+	NORTH = 0,
+	SOUTH,
+	WEST,
+	EAST
+};
 
 typedef struct s_img
 {
@@ -34,6 +43,8 @@ typedef struct s_img
 	int		*data;
 	int		size_line;
 	int		bpp;
+	int		img_width;
+	int		img_height;
 	int		endian;
 }	t_img;
 
