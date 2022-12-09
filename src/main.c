@@ -51,8 +51,9 @@ static void	info_init(t_info *info)
 	info->dir_y = 1.0;
 	info->plane_x = -0.66;
 	info->plane_y = 0.0;
-	info->move_speed = 0.5;
+	info->move_speed = 0.25;
 	info->rot_speed = 0.1;
+	info->mouse_speed = 0.03;
 	info->buf = (int **)malloc(sizeof(int *) * HEIGHT);
 	i = 0;
 	while (i < HEIGHT)
@@ -213,11 +214,11 @@ void load_texture(t_info *info)
 	load_xpm(info, info->texture[EAST], "textures/west.xpm", &img);
 }
 
-
 static int	main_loop(t_info *info)
 {
 	calc(info);
 	draw(info);
+//	draw_minimap(info);
 	return (EXIT_SUCCESS);
 }
 
@@ -232,7 +233,9 @@ int	main(void)
 	info.img.data = (int *)mlx_get_data_addr(info.img.img, \
 			&info.img.bpp, &info.img.size_line, &info.img.endian);
 	mlx_loop_hook(info.mlx, &main_loop, &info);
-//	draw_minimap(&info);
+	mlx_hook(info.win, X11_KEY_PRESS, 0, key_hook, &info);
+	mlx_hook(info.win, X11_WIN_DESTROY, 0, exit_hook, &info);
+	mlx_hook(info.win, X11_MOUSE_MOVE, 0, mouse_move, &info);
 	mlx_loop(info.mlx);
 	return (EXIT_SUCCESS);
 }

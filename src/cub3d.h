@@ -16,6 +16,7 @@
 # include "../lib/libft/include/libft.h"
 # include "../lib/mlx/mlx.h"
 # include <stdio.h>
+# include <stdlib.h>
 # include <math.h>
 
 # define MAP_WIDTH (24)
@@ -28,14 +29,32 @@
 # define CEILING_COLOR (0xa39586)
 # define FLOOR_COLOR (0x413e3d)
 
-extern int	g_world_map[MAP_WIDTH][MAP_HEIGHT];
-
 enum e_texture {
 	NORTH = 0,
 	SOUTH,
 	WEST,
 	EAST
 };
+
+enum e_map
+{
+	EMPTY,
+	WALL
+};
+
+# define X11_KEY_PRESS (02)
+# define X11_MOUSE_MOVE (06)
+# define X11_WIN_DESTROY (17)
+
+# define KEY_ESC (53)
+# define KEY_A (0)
+# define KEY_S (1)
+# define KEY_D (2)
+# define KEY_W (13)
+# define KEY_LEFT (123)
+# define KEY_RIGHT (124)
+
+extern int	g_world_map[MAP_WIDTH][MAP_HEIGHT];
 
 typedef struct s_img
 {
@@ -92,6 +111,7 @@ typedef struct s_info
 	double				plane_y;
 	double				move_speed;
 	double				rot_speed;
+	double				mouse_speed;
 	int					**buf;
 	int					**texture;
 	struct s_raycast	raycast;
@@ -103,5 +123,12 @@ void	calc(t_info *info);
 
 /* raycast_02.c */
 void	calc_texture(t_info *info, int x);
+
+/* key_hook.c */
+int		key_hook(int key_code, t_info *info);
+int		exit_hook(t_info *info);
+
+/* mouse_hook.c */
+int		mouse_move(int x, int y, t_info *info);
 
 #endif
