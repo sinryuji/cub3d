@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 19:23:33 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/10 23:18:32 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/11 00:18:26 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ static void	info_init(t_info *info)
 	while (i < HEIGHT)
 		info->buf[i++] = (int *)ft_calloc(WIDTH, sizeof(int));
 	init_texture(info);
+	init_hud(info);
 //	ft_memset(&info->raycast, 0, sizeof(t_raycast));
 //	ft_memset(&info->draw, 0, sizeof(t_draw));
 }

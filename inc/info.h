@@ -6,7 +6,7 @@
 /*   By: kanghyki <kanghyki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 21:04:13 by kanghyki          #+#    #+#             */
-/*   Updated: 2022/12/10 23:45:37 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/11 00:08:22 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 # define INFO_H
 
 # include "draw.h"
-# include "minimap.h"
+# include "hud.h"
 # include "img.h"
+# include "minimap.h"
 # include "raycast.h"
 
 typedef struct s_info
@@ -36,10 +37,9 @@ typedef struct s_info
 	int					**texture;
 	struct s_raycast	raycast;
 	struct s_draw		draw;
-	double				old_x;
 	struct s_minimap	minimap;
-	int					pis_width;
-	int					pis_height;
+	struct s_hud		hud;
+	double				old_x;
 }	t_info;
 
 #endif

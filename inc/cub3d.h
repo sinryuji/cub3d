@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 21:02:43 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/10 23:47:36 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/11 00:17:47 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ void	init_minimap(t_info *info);
 void	draw_minimap(t_info *info);
 
 /* hud.c */
+void	init_hud(t_info *info);
 void	draw_hud(t_info *info);
 
 /* texture.c */
