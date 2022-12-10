@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 21:02:43 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/09 17:48:23 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/10 16:51:32 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,27 @@
 # include <stdlib.h>
 # include <math.h>
 
+/* define minimap */
+# define MINIMAP_WIDTH (120)
+# define MINIMAP_HEIGHT (90)
+# define MINIMAP_BG_COLOR (0)
+# define MINIMAP_WALL_COLOR (0x665b53)
+# define MINIMAP_PLAYER_COLOR (0xe5c07b)
+
+/* define map */
 # define MAP_WIDTH (24)
 # define MAP_HEIGHT (24)
+
+/* define resolution */
 # define WIDTH (960)
 # define HEIGHT (720)
+
+/* define texture */
 # define TEX_WIDTH (64)
 # define TEX_HEIGHT (64)
 # define TEXTURE_COUNT (4)
+
+/* define ceiling and floor color */
 # define CEILING_COLOR (0xa39586)
 # define FLOOR_COLOR (0x413e3d)
 
@@ -39,7 +53,8 @@ enum e_texture {
 enum e_map
 {
 	EMPTY,
-	WALL
+	WALL,
+	PLAYER
 };
 
 # define X11_KEY_PRESS (02)
@@ -98,6 +113,14 @@ typedef struct s_draw
 	int		color;
 }	t_draw;
 
+typedef struct s_minimap
+{
+//	int				range;
+	double			x_ratio;
+	double			y_ratio;
+	struct s_img	img;
+} t_minimap;
+
 typedef struct s_info
 {
 	void				*mlx;	
@@ -116,6 +139,7 @@ typedef struct s_info
 	int					**texture;
 	struct s_raycast	raycast;
 	struct s_draw		draw;
+	struct s_minimap	minimap;
 }	t_info;
 
 /* raycast_01.c */
@@ -130,5 +154,8 @@ int		exit_hook(t_info *info);
 
 /* mouse_hook.c */
 int		mouse_move(int x, int y, t_info *info);
+
+/* minimap.c */
+void	draw_minimap(t_info *info);
 
 #endif
