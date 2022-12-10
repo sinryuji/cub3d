@@ -6,11 +6,11 @@
 /*   By: kanghyki <kanghyki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 14:39:49 by kanghyki          #+#    #+#             */
-/*   Updated: 2022/12/10 17:00:33 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/10 21:20:44 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../inc/cub3d.h"
 
 void			init_minimap(t_info *info);
 void			put_minimap(t_info *info);

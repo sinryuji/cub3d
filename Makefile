@@ -6,7 +6,7 @@
 #    By: kanghyki <kanghyki@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/01 15:23:01 by kanghyki          #+#    #+#              #
-#    Updated: 2022/12/10 14:38:52 by kanghyki         ###   ########.fr        #
+#    Updated: 2022/12/10 21:18:50 by kanghyki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ MLX				=	$(MLX_DIR)/libmlx.a
 MLX_INC			=	$(MLX_DIR)/inc
 #---------------[ CUB3D ]-----------------
 NAME			=	cub3D
-SRC_INC			=	src
+SRC_INC			=	inc
 SRC_DIR			=	src
 SRC				=	main.c\
 					raycast_01.c\

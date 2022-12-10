@@ -6,11 +6,11 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 19:23:33 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/10 16:04:26 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/10 21:20:29 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../inc/cub3d.h"
 
 int	g_world_map[MAP_WIDTH][MAP_HEIGHT] =
 {

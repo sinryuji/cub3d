@@ -6,11 +6,11 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 21:44:07 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/10 21:16:10 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/10 21:21:03 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../inc/cub3d.h"
 
 int	get_texture_color(t_info *info, int index);
 
