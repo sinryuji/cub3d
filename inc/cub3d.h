@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 21:02:43 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/10 21:21:44 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/10 21:28:11 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CUB3D_H
 
 # include "info.h"
+# include "key.h"
 # include "../lib/libft/include/libft.h"
 # include "../lib/mlx/mlx.h"
 # include <stdio.h>
