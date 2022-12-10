@@ -6,12 +6,12 @@
 /*   By: kanghyki <kanghyki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 20:54:27 by kanghyki          #+#    #+#             */
-/*   Updated: 2022/12/10 22:18:04 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/10 23:27:27 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MLX_IMG_H
-# define MLX_IMG_H
+#ifndef IMG_H
+# define IMG_H
 
 typedef struct s_img
 {
