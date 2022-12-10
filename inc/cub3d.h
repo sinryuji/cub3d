@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 21:02:43 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/10 23:22:38 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/10 23:47:36 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,9 @@
 # define WALL_TEX_HEIGHT (64)
 # define PIS_TEX_WIDTH (192)
 # define PIS_TEX_HEIGHT (192)
+# define PIS_TEX_MEG (3)
 # define CH_TEX_WIDTH (32)
 # define CH_TEX_HEIGHT (32)
-
-/* define hud */
-# define PIS_WIDTH (PIS_TEX_WIDTH * 3)
-# define PIS_HEIGHT (PIS_TEX_HEIGHT * 3)
-# define CH_WIDTH (CH_TEX_WIDTH)
-# define CH_HEIGHT (CH_TEX_HEIGHT)
 
 /* define ceiling and floor color */
 # define CEILING_COLOR (0xa39586)
