@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 21:02:43 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/10 17:02:58 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/10 23:06:51 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,19 +35,46 @@
 # define HEIGHT (720)
 
 /* define texture */
-# define TEX_WIDTH (64)
-# define TEX_HEIGHT (64)
-# define TEXTURE_COUNT (4)
+# define TEX_COUNT (7)
+# define WALL_TEX_WIDTH (64)
+# define WALL_TEX_HEIGHT (64)
+# define PIS_TEX_WIDTH (192)
+# define PIS_TEX_HEIGHT (192)
+# define CH_TEX_WIDTH (32)
+# define CH_TEX_HEIGHT (32)
+
+/* define hud */
+# define PIS_WIDTH (PIS_TEX_WIDTH * 3)
+# define PIS_HEIGHT (PIS_TEX_HEIGHT * 3)
+# define CH_WIDTH (CH_TEX_WIDTH)
+# define CH_HEIGHT (CH_TEX_HEIGHT)
 
 /* define ceiling and floor color */
 # define CEILING_COLOR (0xa39586)
 # define FLOOR_COLOR (0x413e3d)
 
+/* define X11 events */
+# define X11_KEY_PRESS (02)
+# define X11_MOUSE_MOVE (06)
+# define X11_WIN_DESTROY (17)
+
+/* define key mapping */
+# define KEY_ESC (53)
+# define KEY_A (0)
+# define KEY_S (1)
+# define KEY_D (2)
+# define KEY_W (13)
+# define KEY_LEFT (123)
+# define KEY_RIGHT (124)
+
 enum e_texture {
 	NORTH = 0,
 	SOUTH,
 	WEST,
-	EAST
+	EAST,
+	PISTOL,
+	PISTOL_SHOOT,
+	CROSSHAIR
 };
 
 enum e_map
@@ -56,18 +83,6 @@ enum e_map
 	WALL,
 	PLAYER
 };
-
-# define X11_KEY_PRESS (02)
-# define X11_MOUSE_MOVE (06)
-# define X11_WIN_DESTROY (17)
-
-# define KEY_ESC (53)
-# define KEY_A (0)
-# define KEY_S (1)
-# define KEY_D (2)
-# define KEY_W (13)
-# define KEY_LEFT (123)
-# define KEY_RIGHT (124)
 
 extern int	g_world_map[MAP_WIDTH][MAP_HEIGHT];
 
@@ -158,5 +173,12 @@ int		mouse_move_hook(int x, int y, t_info *info);
 
 /* minimap.c */
 void	draw_minimap(t_info *info);
+
+/* hud.c */
+void	draw_hud(t_info *info);
+
+/* texture.c */
+void	load_texture(t_info *info);
+void	init_texture(t_info *info);
 
 #endif
