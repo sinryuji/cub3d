@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 21:02:43 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/09 17:48:23 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/10 16:51:04 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,7 @@ typedef struct s_info
 	int					**texture;
 	struct s_raycast	raycast;
 	struct s_draw		draw;
+	double				old_x;
 }	t_info;
 
 /* raycast_01.c */
@@ -129,6 +130,6 @@ int		key_hook(int key_code, t_info *info);
 int		exit_hook(t_info *info);
 
 /* mouse_hook.c */
-int		mouse_move(int x, int y, t_info *info);
+int		mouse_move_hook(int x, int y, t_info *info);
 
 #endif

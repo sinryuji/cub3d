@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 19:23:33 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/09 18:38:54 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/10 16:51:27 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ static void	info_init(t_info *info)
 	info->move_speed = 0.25;
 	info->rot_speed = 0.1;
 	info->mouse_speed = 0.03;
+	info->old_x = 0;
 	info->buf = (int **)malloc(sizeof(int *) * HEIGHT);
 	i = 0;
 	while (i < HEIGHT)
@@ -235,7 +236,7 @@ int	main(void)
 	mlx_loop_hook(info.mlx, &main_loop, &info);
 	mlx_hook(info.win, X11_KEY_PRESS, 0, key_hook, &info);
 	mlx_hook(info.win, X11_WIN_DESTROY, 0, exit_hook, &info);
-	mlx_hook(info.win, X11_MOUSE_MOVE, 0, mouse_move, &info);
+	mlx_hook(info.win, X11_MOUSE_MOVE, 0, mouse_move_hook, &info);
 	mlx_loop(info.mlx);
 	return (EXIT_SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 21:44:07 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/09 18:40:29 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/10 16:54:12 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 void	calc_texture(t_info *info, int x)
 {
 	int	y;
-	int color;
-	int index;
+	int	color;
+	int	index;
 
 	y = 0;
 	while (y < HEIGHT)
