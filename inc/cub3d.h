@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 21:02:43 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/10 21:28:11 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/10 23:22:38 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,19 @@
 # define HEIGHT (720)
 
 /* define texture */
-# define TEX_WIDTH (64)
-# define TEX_HEIGHT (64)
-# define TEXTURE_COUNT (4)
+# define TEX_COUNT (7)
+# define WALL_TEX_WIDTH (64)
+# define WALL_TEX_HEIGHT (64)
+# define PIS_TEX_WIDTH (192)
+# define PIS_TEX_HEIGHT (192)
+# define CH_TEX_WIDTH (32)
+# define CH_TEX_HEIGHT (32)
+
+/* define hud */
+# define PIS_WIDTH (PIS_TEX_WIDTH * 3)
+# define PIS_HEIGHT (PIS_TEX_HEIGHT * 3)
+# define CH_WIDTH (CH_TEX_WIDTH)
+# define CH_HEIGHT (CH_TEX_HEIGHT)
 
 /* define ceiling and floor color */
 # define CEILING_COLOR (0xa39586)
@@ -42,7 +52,10 @@ enum e_texture {
 	NORTH = 0,
 	SOUTH,
 	WEST,
-	EAST
+	EAST,
+	PISTOL,
+	PISTOL_SHOOT,
+	CROSSHAIR
 };
 
 enum e_map
@@ -65,10 +78,17 @@ int		key_hook(int key_code, t_info *info);
 int		exit_hook(t_info *info);
 
 /* mouse_hook.c */
-int		mouse_move(int x, int y, t_info *info);
+int		mouse_move_hook(int x, int y, t_info *info);
 
 /* minimap.c */
 void	init_minimap(t_info *info);
 void	draw_minimap(t_info *info);
+
+/* hud.c */
+void	draw_hud(t_info *info);
+
+/* texture.c */
+void	load_texture(t_info *info);
+void	init_texture(t_info *info);
 
 #endif

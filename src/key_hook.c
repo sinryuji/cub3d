@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 11:45:25 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/10 21:20:24 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/10 23:17:14 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,6 @@ static void	key_move_ws(int key_code, t_info *info)
 					info->dir_x * info->move_speed)] == EMPTY)
 			info->pos_x -= info->dir_x * info->move_speed;
 	}
-	if (info->pos_x < 1.3)
-		info->pos_x = 1.3;
-	if (info->pos_y < 1.3)
-		info->pos_y = 1.3;
 }
 
 static void	key_move_ad(int key_code, t_info *info)
@@ -64,10 +60,6 @@ static void	key_move_ad(int key_code, t_info *info)
 					info->dir_y * info->move_speed)] == EMPTY)
 			info->pos_x += info->dir_y * info->move_speed;
 	}
-	if (info->pos_x < 1.3)
-		info->pos_x = 1.3;
-	if (info->pos_y < 1.3)
-		info->pos_y = 1.3;
 }
 
 static void	key_rotate(int key_code, t_info *info, \
@@ -107,5 +99,9 @@ int	key_hook(int key_code, t_info *info)
 		key_move_ad(key_code, info);
 	else if (key_code == KEY_LEFT || key_code == KEY_RIGHT)
 		key_rotate(key_code, info, info->dir_x, info->plane_x);
+	if (info->pos_x < 1.3)
+		info->pos_x = 1.3;
+	if (info->pos_y < 1.3)
+		info->pos_y = 1.3;
 	return (EXIT_SUCCESS);
 }

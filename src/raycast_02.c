@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 21:44:07 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/10 21:21:03 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/10 23:21:19 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ void	calc_texture(t_info *info, int x)
 	{
 		if (y >= info->draw.draw_start && y < info->draw.draw_end)
 		{
-			info->draw.tex_y = (int)info->draw.tex_pos & (TEX_HEIGHT - 1);
+			info->draw.tex_y = (int)info->draw.tex_pos & (WALL_TEX_HEIGHT - 1);
 			info->draw.tex_pos += info->draw.step;
-			index = info->draw.tex_y * TEX_WIDTH + info->draw.tex_x;
+			index = info->draw.tex_y * WALL_TEX_WIDTH + info->draw.tex_x;
 			info->buf[y][x] = get_texture_color(info, index);
 		}	
 		else if (y < info->draw.draw_start)
