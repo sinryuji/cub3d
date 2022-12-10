@@ -6,7 +6,7 @@
 /*   By: kanghyki <kanghyki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 14:39:49 by kanghyki          #+#    #+#             */
-/*   Updated: 2022/12/10 16:50:45 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/10 17:00:33 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	draw_minimap(t_info *info)
 
 void	init_minimap(t_info *info)
 {
-	info->minimap.range = 10;
+//	info->minimap.range = 10;
 	info->minimap.y_ratio = (double)MAP_HEIGHT / MINIMAP_HEIGHT;
 	info->minimap.x_ratio = (double)MAP_WIDTH / MINIMAP_WIDTH;
 	info->minimap.img.img = mlx_new_image(info->mlx, \
