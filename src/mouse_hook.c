@@ -6,11 +6,11 @@
 /*   By: hyeongki <hyeongki@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 11:54:55 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/10 16:51:54 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/10 23:56:31 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../inc/cub3d.h"
 
 static void	move_left(t_info *info, double old_dir_x, double old_plane_x)
 {
