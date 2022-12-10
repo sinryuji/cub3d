@@ -6,7 +6,7 @@
 /*   By: kanghyki <kanghyki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 21:04:13 by kanghyki          #+#    #+#             */
-/*   Updated: 2022/12/10 21:22:24 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/10 21:51:40 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "draw.h"
 # include "minimap.h"
-# include "mlx_img.h"
+# include "img.h"
 # include "raycast.h"
 
 typedef struct s_info

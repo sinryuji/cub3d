@@ -6,14 +6,14 @@
 /*   By: kanghyki <kanghyki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 20:50:25 by kanghyki          #+#    #+#             */
-/*   Updated: 2022/12/10 21:10:50 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/10 21:51:46 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIMAP_H
 # define MINIMAP_H
 
-# include "mlx_img.h"
+# include "img.h"
 
 # define MINIMAP_WIDTH (120)
 # define MINIMAP_HEIGHT (90)
