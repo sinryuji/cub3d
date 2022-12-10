@@ -6,7 +6,7 @@
 /*   By: kanghyki <kanghyki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 21:08:14 by kanghyki          #+#    #+#             */
-/*   Updated: 2022/12/10 23:22:33 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/11 00:26:02 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 /* define X11 events */
 # define X11_KEY_PRESS (02)
+# define X11_MOUSE_CLICK (4)
 # define X11_MOUSE_MOVE (06)
 # define X11_WIN_DESTROY (17)
 
