@@ -6,11 +6,11 @@
 /*   By: hyeongki <hyeongki@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 11:45:25 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/10 16:47:45 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/10 23:17:14 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../inc/cub3d.h"
 
 int	exit_hook(t_info *info)
 {

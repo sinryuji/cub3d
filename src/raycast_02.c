@@ -6,16 +6,17 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 21:44:07 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/10 17:43:12 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/10 23:21:19 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../inc/cub3d.h"
+
+int	get_texture_color(t_info *info, int index);
 
 void	calc_texture(t_info *info, int x)
 {
 	int	y;
-	int	color;
 	int	index;
 
 	y = 0;
@@ -26,15 +27,7 @@ void	calc_texture(t_info *info, int x)
 			info->draw.tex_y = (int)info->draw.tex_pos & (WALL_TEX_HEIGHT - 1);
 			info->draw.tex_pos += info->draw.step;
 			index = info->draw.tex_y * WALL_TEX_WIDTH + info->draw.tex_x;
-			if (info->raycast.side == 1 && info->raycast.step_y == 1)
-				color = info->texture[NORTH][index];
-			else if (info->raycast.side == 1 && info->raycast.step_y == -1)
-				color = info->texture[SOUTH][index];
-			else if (info->raycast.side == 0 && info->raycast.step_x == 1)
-				color = info->texture[EAST][index];
-			else if (info->raycast.side == 0 && info->raycast.step_x == -1)
-				color = info->texture[WEST][index];
-			info->buf[y][x] = color;
+			info->buf[y][x] = get_texture_color(info, index);
 		}	
 		else if (y < info->draw.draw_start)
 			info->buf[y][x] = CEILING_COLOR;
@@ -42,4 +35,20 @@ void	calc_texture(t_info *info, int x)
 			info->buf[y][x] = FLOOR_COLOR;
 		++y;
 	}
+}
+
+int	get_texture_color(t_info *info, int index)
+{
+	int	ret;
+
+	ret = 0;
+	if (info->raycast.side == 1 && info->raycast.step_y == 1)
+		ret = info->texture[NORTH][index];
+	else if (info->raycast.side == 1 && info->raycast.step_y == -1)
+		ret = info->texture[SOUTH][index];
+	else if (info->raycast.side == 0 && info->raycast.step_x == 1)
+		ret = info->texture[EAST][index];
+	else if (info->raycast.side == 0 && info->raycast.step_x == -1)
+		ret = info->texture[WEST][index];
+	return (ret);
 }
