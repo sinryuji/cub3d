@@ -6,7 +6,7 @@
 /*   By: kanghyki <kanghyki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 21:04:13 by kanghyki          #+#    #+#             */
-/*   Updated: 2022/12/10 23:18:22 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/10 23:45:37 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ typedef struct s_info
 	struct s_draw		draw;
 	double				old_x;
 	struct s_minimap	minimap;
+	int					pis_width;
+	int					pis_height;
 }	t_info;
 
 #endif
