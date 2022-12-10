@@ -6,11 +6,11 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 17:23:45 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/10 23:13:18 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/10 23:32:26 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../inc/cub3d.h"
 
 static void	load_xpm(t_info *info, int *texture, char *path, t_img *img)
 {
