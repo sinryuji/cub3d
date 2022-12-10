@@ -6,11 +6,11 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 17:14:16 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/10 23:12:57 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/10 23:30:45 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../inc/cub3d.h"
 
 static void	init_hud(t_info *info, t_img *pistol, t_img *crosshair)
 {
