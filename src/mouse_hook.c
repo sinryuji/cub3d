@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 11:54:55 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/11 10:51:55 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/11 10:57:25 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,11 @@ int	mouse_move_hook(int x, int y, t_info *info)
 	return (EXIT_SUCCESS);
 }
 
-int mouse_click_hook(int button, int x, int y, t_info *info)
+int	mouse_click_hook(int button, int x, int y, t_info *info)
 {
 	(void)x;
 	(void)y;
 	if (button == MOUSE_LEFT)
-		draw_shoot_pistol(info, &info->hud.pistol.img);
+		draw_pistol(info, &info->hud.pistol.img, PISTOL_SHOOT);
 	return (EXIT_SUCCESS);
 }
