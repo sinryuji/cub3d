@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 21:44:07 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/10 23:21:19 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/11 15:59:53 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,12 @@ int	get_texture_color(t_info *info, int index)
 
 	ret = 0;
 	if (info->raycast.side == 1 && info->raycast.step_y == 1)
-		ret = info->texture[NORTH][index];
+		ret = info->texture[T_NORTH][index];
 	else if (info->raycast.side == 1 && info->raycast.step_y == -1)
-		ret = info->texture[SOUTH][index];
+		ret = info->texture[T_SOUTH][index];
 	else if (info->raycast.side == 0 && info->raycast.step_x == 1)
-		ret = info->texture[EAST][index];
+		ret = info->texture[T_EAST][index];
 	else if (info->raycast.side == 0 && info->raycast.step_x == -1)
-		ret = info->texture[WEST][index];
+		ret = info->texture[T_WEST][index];
 	return (ret);
 }

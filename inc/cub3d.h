@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 21:02:43 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/11 12:59:15 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/11 16:45:18 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@
 # define FLOOR_COLOR (0x413e3d)
 
 enum e_texture {
-	NORTH = 0,
-	SOUTH,
-	WEST,
-	EAST,
+	T_NORTH = 0,
+	T_SOUTH,
+	T_WEST,
+	T_EAST,
 	PISTOL,
 	PISTOL_SHOOT,
 	CROSSHAIR
@@ -96,4 +96,9 @@ void	init_texture(t_info *info);
 /* error.c */
 void	put_err_exit(int err);
 
+/* util.c */
+bool	check_split_len(char **split, int n);
+int		rgb_to_int(char *str);
+bool	is_wall(char *str);
+char	*remove_n(char *str);
 #endif

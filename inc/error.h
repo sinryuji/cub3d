@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 12:51:11 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/11 13:12:20 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/11 16:16:57 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,25 @@
 
 # include "../lib/libft/include/libft.h"
 
-# define ERR_ARGC_MSG ("Invalid argumnet count\n")
-# define ERR_OPEN_MSG ("File open failed\n")
-# define ERR_CUB_MSG ("Not cub file\n")
+# define ERR_ARGC_MSG ("ERROR\nInvalid argumnet count\n")
+# define ERR_CUB_OPEN_MSG ("ERROR\nCub file open failed\n")
+# define ERR_TEX_OPEN_MSG ("ERROR\nTexture file open failed\n")
+# define ERR_CUB_MSG ("ERROR\nNot cub file\n")
+# define ERR_WALL_INFO_LEN_MSG ("ERROR\nInvalid wall infomation count\n")
+# define ERR_FLOOR_INFO_LEN_MSG ("ERROR\nInvalid floor infomation count\n")
+# define ERR_UNKNOWN_MSG ("ERROR\nUnknown infomation type\n")
 
 enum e_error
 {
 	SUCCESS = 0,
 	ERR_ARGC,
-	ERR_FILE_OPEN,
-	ERR_NOT_CUB
+	ERR_CUB_FILE_OPEN,
+	ERR_TEX_FILE_OPEN,
+	ERR_NOT_CUB,
+	ERR_WALL_INFO_LEN,
+	ERR_FLOOR_INFO_LEN,
+	ERR_UNKNOWN_INFO,
+	ERR_LAST
 };
 
 #endif

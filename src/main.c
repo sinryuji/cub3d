@@ -6,11 +6,12 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 19:23:33 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/11 13:15:13 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/11 17:00:55 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
+#include <sys/fcntl.h>
 
 int	g_world_map[MAP_WIDTH][MAP_HEIGHT] =
 {
@@ -93,77 +94,109 @@ static int	main_loop(t_info *info)
 	return (EXIT_SUCCESS);
 }
 
-int	rgb_to_int(char *str)
+//int	set_wall_info(t_info *info, char **split)
+//{
+//	if (check_split_len(split, 2) == false)
+//		return (ERR_OTHER_LEN);
+//	if (ft_strcmp(split[0], "NO") == 0)
+//		info->map.north_path = ft_strdup(split[1]);
+//	else if (ft_strcmp(split[0], "SO") == 0)
+//		info->map.south_path = ft_strdup(split[1]);
+//	else if (ft_strcmp(split[0], "WE") == 0)
+//		info->map.west_path = ft_strdup(split[1]);
+//	else if (ft_strcmp(split[0], "EA") == 0)
+//		info->map.east_path = ft_strdup(split[1]);
+//	else if (ft_strcmp(split[0], "F") == 0)
+//		info->map.floor_color = rgb_to_int(split[1]);
+//	else if (ft_strcmp(split[0], "C") == 0)
+//		info->map.ceilling_color = rgb_to_int(split[1]);
+//	else
+//		return (ERR_UNKNOWN_INFO);
+//	return (SUCCESS);
+//}
+//
+//void	parse_other(t_info *info, int fd)
+//{
+//	char	*line;
+//	char	**split;
+//
+//	while (true)
+//	{
+//		line = get_next_line(fd);
+//		if (line == NULL)
+//			break ;
+//		split = ft_split(line, ' ');
+//		if (set_other_info(info, split) != SUCCESS)
+//		{
+//			free(line);
+//			break ;
+//		}
+//		free(line);
+//		ft_split_free(split);
+//	}
+//}
+
+bool	check_extension(char *file_path)
 {
-	int	red;
-	int	green;
-	int	blue;
 	char	**split;
+	bool	ret;
 
-	split = ft_split(str, ',');
-	red = ft_atoi_hex(split[0]) * pow(16, 4);
-	green = ft_atoi_hex(split[1]) * pow(16, 2);
-	blue = ft_atoi_hex(split[2]);
+	ret = true;
+	split = ft_split(file_path, '.');
+	ret = check_split_len(split, 2);
+	if (ret && ft_strcmp(split[1], "cub") != 0)
+		ret = false;
 	ft_split_free(split);
-	return (red + green + blue);
+	return (ret);
 }
 
-bool	set_other_info(t_info *info, char **split)
+int	parse_wall(t_info *info, char **split)
 {
-	if (ft_strcmp(split[0], "NO") == 0)
-		info->map.north_path = ft_strdup(split[1]);
-	else if (ft_strcmp(split[0], "SO") == 0)
-		info->map.south_path = ft_strdup(split[1]);
-	else if (ft_strcmp(split[0], "WE") == 0)
-		info->map.west_path = ft_strdup(split[1]);
-	else if (ft_strcmp(split[0], "EA") == 0)
-		info->map.east_path = ft_strdup(split[1]);
-	else if (ft_strcmp(split[0], "F") == 0)
-		info->map.floor_color = rgb_to_int(split[1]);
-	else if (ft_strcmp(split[0], "C") == 0)
-		info->map.ceilling_color = rgb_to_int(split[1]);
-	else
-		return (false);
-	return (true);
+	int		fd;
+	char	*new;
+
+	if (check_split_len(split, 2) == false)
+		return (ERR_WALL_INFO_LEN);
+	new = remove_n(split[1]);
+	fd = open(new, O_RDONLY);
+	if (fd == -1)
+		return (ERR_TEX_FILE_OPEN);
+	close(fd);
+	if (ft_strcmp(split[0], NORTH) == 0)
+		info->map.north_path = new;
+	else if (ft_strcmp(split[0], SOUTH) == 0)
+		info->map.south_path = new;
+	else if (ft_strcmp(split[0], WEST) == 0)
+		info->map.west_path = new;
+	else if (ft_strcmp(split[0], EAST) == 0)
+		info->map.east_path = new;
+	return (SUCCESS);
 }
 
-void	parse_other(t_info *info, int fd)
+int	parse_handling(t_info *info, char **split)
+{
+	if (is_wall(split[0]) == true)
+		return (parse_wall(info, split));
+	return (SUCCESS);
+}
+
+int	parse_loop(t_info *info, int fd)
 {
 	char	*line;
 	char	**split;
+	int		ret;
 
-	while (true)
+	ret = SUCCESS;
+	while (ret == SUCCESS)
 	{
 		line = get_next_line(fd);
 		if (line == NULL)
 			break ;
 		split = ft_split(line, ' ');
-		if (set_other_info(info, split) == false)
-		{
-			free(line);
-			break ;
-		}
+		ret = parse_handling(info, split);
 		free(line);
 		ft_split_free(split);
 	}
-}
-
-bool	check_extension(char *file_path)
-{
-	char	**split;
-	int		i;
-	bool	ret;
-
-	ret = true;
-	split = ft_split(file_path, '.');
-	i = 0;
-	while (split[i])
-		i++;
-	if (i != 2)
-		ret = false;
-	if (ret && ft_strcmp(split[1], "cub") != 0)
-		ret = false;
-	ft_split_free(split);
 	return (ret);
 }
 
@@ -175,9 +208,8 @@ int	parse_map(t_info *info, char *file_path)
 		return (ERR_NOT_CUB);
 	fd = open(file_path, O_RDONLY);
 	if (fd == -1)
-		return (ERR_FILE_OPEN);
-	parse_other(info, fd);
-	return (SUCCESS);
+		return (ERR_CUB_FILE_OPEN);
+	return (parse_loop(info, fd));
 }
 
 int	main(int argc, char **argv)
@@ -188,6 +220,12 @@ int	main(int argc, char **argv)
 		put_err_exit(ERR_ARGC);
 	info_init(&info);
 	put_err_exit(parse_map(&info, argv[1]));
+	printf("%s\n", info.map.north_path);
+	printf("%s\n", info.map.south_path);
+	printf("%s\n", info.map.west_path);
+	printf("%s\n", info.map.east_path);
+	printf("%d\n", info.map.floor_color);
+	printf("%d\n", info.map.ceilling_color);
 	load_texture(&info);
 	info.win = mlx_new_window(info.mlx, WIDTH, HEIGHT, "cub3d");
 	info.img.img = mlx_new_image(info.mlx, WIDTH, HEIGHT);

@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 17:23:45 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/10 23:32:26 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/11 16:00:10 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ void	load_texture(t_info *info)
 {
 	t_img	img;
 
-	load_xpm(info, info->texture[NORTH], "textures/north.xpm", &img);
-	load_xpm(info, info->texture[SOUTH], "textures/south.xpm", &img);
-	load_xpm(info, info->texture[WEST], "textures/east.xpm", &img);
-	load_xpm(info, info->texture[EAST], "textures/west.xpm", &img);
+	load_xpm(info, info->texture[T_NORTH], "textures/north.xpm", &img);
+	load_xpm(info, info->texture[T_SOUTH], "textures/south.xpm", &img);
+	load_xpm(info, info->texture[T_WEST], "textures/east.xpm", &img);
+	load_xpm(info, info->texture[T_EAST], "textures/west.xpm", &img);
 	load_xpm(info, info->texture[PISTOL], "textures/pistol.xpm", &img);
 	load_xpm(info, info->texture[PISTOL_SHOOT], \
 			"textures/pistol_shoot.xpm", &img);
