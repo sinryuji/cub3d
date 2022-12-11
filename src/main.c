@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 19:23:33 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/11 10:50:35 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/11 13:15:13 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,11 +93,101 @@ static int	main_loop(t_info *info)
 	return (EXIT_SUCCESS);
 }
 
-int	main(void)
+int	rgb_to_int(char *str)
+{
+	int	red;
+	int	green;
+	int	blue;
+	char	**split;
+
+	split = ft_split(str, ',');
+	red = ft_atoi_hex(split[0]) * pow(16, 4);
+	green = ft_atoi_hex(split[1]) * pow(16, 2);
+	blue = ft_atoi_hex(split[2]);
+	ft_split_free(split);
+	return (red + green + blue);
+}
+
+bool	set_other_info(t_info *info, char **split)
+{
+	if (ft_strcmp(split[0], "NO") == 0)
+		info->map.north_path = ft_strdup(split[1]);
+	else if (ft_strcmp(split[0], "SO") == 0)
+		info->map.south_path = ft_strdup(split[1]);
+	else if (ft_strcmp(split[0], "WE") == 0)
+		info->map.west_path = ft_strdup(split[1]);
+	else if (ft_strcmp(split[0], "EA") == 0)
+		info->map.east_path = ft_strdup(split[1]);
+	else if (ft_strcmp(split[0], "F") == 0)
+		info->map.floor_color = rgb_to_int(split[1]);
+	else if (ft_strcmp(split[0], "C") == 0)
+		info->map.ceilling_color = rgb_to_int(split[1]);
+	else
+		return (false);
+	return (true);
+}
+
+void	parse_other(t_info *info, int fd)
+{
+	char	*line;
+	char	**split;
+
+	while (true)
+	{
+		line = get_next_line(fd);
+		if (line == NULL)
+			break ;
+		split = ft_split(line, ' ');
+		if (set_other_info(info, split) == false)
+		{
+			free(line);
+			break ;
+		}
+		free(line);
+		ft_split_free(split);
+	}
+}
+
+bool	check_extension(char *file_path)
+{
+	char	**split;
+	int		i;
+	bool	ret;
+
+	ret = true;
+	split = ft_split(file_path, '.');
+	i = 0;
+	while (split[i])
+		i++;
+	if (i != 2)
+		ret = false;
+	if (ret && ft_strcmp(split[1], "cub") != 0)
+		ret = false;
+	ft_split_free(split);
+	return (ret);
+}
+
+int	parse_map(t_info *info, char *file_path)
+{
+	int		fd;
+
+	if (check_extension(file_path) == false)
+		return (ERR_NOT_CUB);
+	fd = open(file_path, O_RDONLY);
+	if (fd == -1)
+		return (ERR_FILE_OPEN);
+	parse_other(info, fd);
+	return (SUCCESS);
+}
+
+int	main(int argc, char **argv)
 {
 	t_info	info;
 
+	if (argc != 2)
+		put_err_exit(ERR_ARGC);
 	info_init(&info);
+	put_err_exit(parse_map(&info, argv[1]));
 	load_texture(&info);
 	info.win = mlx_new_window(info.mlx, WIDTH, HEIGHT, "cub3d");
 	info.img.img = mlx_new_image(info.mlx, WIDTH, HEIGHT);

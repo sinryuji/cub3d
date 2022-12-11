@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 21:02:43 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/11 10:56:48 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/11 12:59:15 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,12 @@
 
 # include "info.h"
 # include "key.h"
+# include "error.h"
 # include "../lib/libft/include/libft.h"
 # include "../lib/mlx/mlx.h"
+
+# include <fcntl.h>
+# include <stdbool.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <math.h>
@@ -88,5 +92,8 @@ void	draw_pistol(t_info *info, t_img *pistol, int status);
 /* texture.c */
 void	load_texture(t_info *info);
 void	init_texture(t_info *info);
+
+/* error.c */
+void	put_err_exit(int err);
 
 #endif

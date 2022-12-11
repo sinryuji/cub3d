@@ -6,7 +6,7 @@
 #    By: kanghyki <kanghyki@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/01 15:23:01 by kanghyki          #+#    #+#              #
-#    Updated: 2022/12/10 23:15:15 by hyeongki         ###   ########.fr        #
+#    Updated: 2022/12/11 12:59:49 by hyeongki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,8 @@ SRC				=	main.c\
 					mouse_hook.c\
 					minimap.c\
 					hud.c\
-					texture.c
+					texture.c\
+					error.c
 
 OBJ_DIR			=	obj
 OBJ				=	$(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
