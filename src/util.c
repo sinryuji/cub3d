@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 15:14:13 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/11 17:04:31 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/11 18:30:02 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ bool	check_split_len(char **split, int n)
 {
 	int	i;
 
+	if (split == NULL)
+		return (false);
 	i = 0;
 	while (split[i])
 		i++;
@@ -32,9 +34,10 @@ int	rgb_to_int(char *str)
 	char	**split;
 
 	split = ft_split(str, ',');
-	red = ft_atoi_hex(split[0]) * pow(16, 4);
-	green = ft_atoi_hex(split[1]) * pow(16, 2);
-	blue = ft_atoi_hex(split[2]);
+	
+	red = ft_atoi(split[0]) * pow(16, 4);
+	green = ft_atoi(split[1]) * pow(16, 2);
+	blue = ft_atoi(split[2]);
 	ft_split_free(split);
 	return (red + green + blue);
 }
@@ -54,7 +57,11 @@ bool	is_wall(char *str)
 
 bool	is_floor(char *str)
 {
-	if (ft_strcmp(str, ))
+	if (ft_strcmp(str, FLOOR) == 0)
+		return (true);
+	else if (ft_strcmp(str, CEILLING) == 0)
+		return (true);
+	return (false);
 }
 
 char	*remove_n(char *str)
@@ -62,9 +69,14 @@ char	*remove_n(char *str)
 	char	*new;
 	char	*n;
 
+	if (str == NULL)
+		return (NULL);
 	n = ft_strchr(str, '\n');
 	if (n == NULL)
 		return (str);
+	if (n == str)
+		return (str);
 	new = ft_strndup(str, n - str);
+	free(str);
 	return (new);
 }
