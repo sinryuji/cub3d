@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 21:02:43 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/11 10:56:48 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/11 18:58:47 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,12 @@
 
 # include "info.h"
 # include "key.h"
+# include "error.h"
 # include "../lib/libft/include/libft.h"
 # include "../lib/mlx/mlx.h"
+
+# include <fcntl.h>
+# include <stdbool.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <math.h>
@@ -44,10 +48,10 @@
 # define FLOOR_COLOR (0x413e3d)
 
 enum e_texture {
-	NORTH = 0,
-	SOUTH,
-	WEST,
-	EAST,
+	T_NORTH = 0,
+	T_SOUTH,
+	T_WEST,
+	T_EAST,
 	PISTOL,
 	PISTOL_SHOOT,
 	CROSSHAIR
@@ -88,5 +92,21 @@ void	draw_pistol(t_info *info, t_img *pistol, int status);
 /* texture.c */
 void	load_texture(t_info *info);
 void	init_texture(t_info *info);
+
+/* error.c */
+void	put_err_exit(int err);
+
+/* util_01.c */
+bool	check_split_len(char **split, int n);
+int		rgb_to_int(char *str);
+bool	is_wall(char *str);
+bool	is_floor(char *str);
+char	*remove_n(char *str);
+
+/* util_02.c */
+bool	check_extension(char *file_path);
+
+/* parse.c */
+int	parse_map(t_info *info, char *file_path);
 
 #endif

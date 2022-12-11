@@ -14,6 +14,9 @@ cub3D
 # swap
 *.swp
 
+# map
+maps
+
 .DS_Store
 
 textures

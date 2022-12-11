@@ -6,11 +6,12 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 19:23:33 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/11 10:50:35 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/11 18:58:02 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
+#include <sys/fcntl.h>
 
 int	g_world_map[MAP_WIDTH][MAP_HEIGHT] =
 {
@@ -93,11 +94,14 @@ static int	main_loop(t_info *info)
 	return (EXIT_SUCCESS);
 }
 
-int	main(void)
+int	main(int argc, char **argv)
 {
 	t_info	info;
 
+	if (argc != 2)
+		put_err_exit(ERR_ARGC);
 	info_init(&info);
+	put_err_exit(parse_map(&info, argv[1]));
 	load_texture(&info);
 	info.win = mlx_new_window(info.mlx, WIDTH, HEIGHT, "cub3d");
 	info.img.img = mlx_new_image(info.mlx, WIDTH, HEIGHT);
