@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 18:56:35 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/11 18:56:57 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/11 21:59:27 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,3 +26,18 @@ bool	check_extension(char *file_path)
 	return (ret);
 }
 
+bool	check_contain_char(char *str)
+{
+	int	i;
+
+	if (str == NULL)
+		return (false);
+	i = 0;
+	while (str[i])
+	{
+		if (ft_isdigit(str[i]) == false)
+			return (false);
+		i++;
+	}
+	return (true);
+}

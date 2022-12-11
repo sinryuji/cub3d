@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 12:52:37 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/11 18:33:55 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/11 22:05:10 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@ static char	*get_err_msg(int err)
 		return (ERR_FLOOR_INFO_LEN_MSG);
 	else if (err == ERR_RGB_LEN)
 		return (ERR_RGB_LEN_MSG);
+	else if (err == ERR_RGB_VAL)
+		return (ERR_RGB_VAL_MSG);
+	else if (err == ERR_RGB_RANGE)
+		return (ERR_RGB_RANGE_MSG);
 	else if (err == ERR_UNKNOWN_INFO)
 		return (ERR_UNKNOWN_MSG);
 	return (NULL);

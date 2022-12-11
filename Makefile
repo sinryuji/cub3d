@@ -6,7 +6,7 @@
 #    By: kanghyki <kanghyki@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/01 15:23:01 by kanghyki          #+#    #+#              #
-#    Updated: 2022/12/11 18:57:58 by hyeongki         ###   ########.fr        #
+#    Updated: 2022/12/11 21:48:03 by hyeongki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,8 @@ SRC				=	main.c\
 					error.c\
 					util_01.c\
 					util_02.c\
-					parse.c
+					parse_01.c\
+					parse_02.c
 
 OBJ_DIR			=	obj
 OBJ				=	$(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))

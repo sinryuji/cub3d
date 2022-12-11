@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.c                                            :+:      :+:    :+:   */
+/*   parse_01.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyeongki <hyeongki@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 18:55:09 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/11 18:58:09 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/11 22:06:47 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
-
 
 static int	parse_wall(t_info *info, char **split)
 {
@@ -34,10 +33,15 @@ static int	parse_wall(t_info *info, char **split)
 	return (SUCCESS);
 }
 
-static int parse_floor(t_info *info, char **split)
+static int	parse_floor(t_info *info, char **split)
 {
+	int	ret;
+
 	if (check_split_len(split, 2) == false)
 		return (ERR_FLOOR_INFO_LEN);
+	ret = rgb_validation(split[1]);
+	if (ret != SUCCESS)
+		return (ret);
 	if (ft_strcmp(split[0], FLOOR) == 0)
 		info->map.floor_color = rgb_to_int(split[1]);
 	else if (ft_strcmp(split[0], CEILLING) == 0)
@@ -47,7 +51,7 @@ static int parse_floor(t_info *info, char **split)
 
 static int	parse_handling(t_info *info, char **split)
 {
-	if (is_wall(split[0]) == true)	
+	if (is_wall(split[0]) == true)
 		return (parse_wall(info, split));
 	if (is_floor(split[0]) == true)
 		return (parse_floor(info, split));
