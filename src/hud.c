@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 17:14:16 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/11 10:56:31 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/12 08:46:32 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ void	draw_pistol(t_info *info, t_img *pistol, int status)
 		while (x < info->hud.pistol.width)
 		{
 			pistol->data[y * info->hud.pistol.width + x] = \
-					info->texture[status][y / (PIS_TEX_MEG * PIS_TEX_MEG) * \
+					info->texture.pistol[status] \
+					[y / (PIS_TEX_MEG * PIS_TEX_MEG) * \
 					info->hud.pistol.width + x / PIS_TEX_MEG];
 			++x;
 		}
@@ -67,7 +68,7 @@ static void	draw_crosshair(t_info *info, t_img *crosshair)
 		while (x < CH_TEX_WIDTH)
 		{
 			crosshair->data[y * CH_TEX_WIDTH + x] = \
-							info->texture[CROSSHAIR][y * CH_TEX_WIDTH + x];
+							info->texture.crosshair[y * CH_TEX_WIDTH + x];
 			++x;
 		}
 		++y;
@@ -79,6 +80,6 @@ static void	draw_crosshair(t_info *info, t_img *crosshair)
 
 void	draw_hud(t_info *info)
 {
-	draw_pistol(info, &info->hud.pistol.img, PISTOL);
+	draw_pistol(info, &info->hud.pistol.img, P_STAND);
 	draw_crosshair(info, &info->hud.crosshair.img);
 }
