@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 21:02:43 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/11 00:49:37 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/11 10:47:07 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ int		exit_hook(t_info *info);
 
 /* mouse_hook.c */
 int		mouse_move_hook(int x, int y, t_info *info);
+int		mouse_click_hook(int button, int x, int y, t_info *info);
 
 /* minimap.c */
 void	init_minimap(t_info *info);
