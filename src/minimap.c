@@ -6,7 +6,7 @@
 /*   By: kanghyki <kanghyki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 14:39:49 by kanghyki          #+#    #+#             */
-/*   Updated: 2022/12/11 17:22:26 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/11 18:10:16 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	init_minimap(t_info *info)
 			&info->minimap.img.size_line, \
 			&info->minimap.img.endian);
 }
-#include <unistd.h>
+
 void	put_minimap(t_info *info)
 {
 	int	x;
