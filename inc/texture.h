@@ -6,20 +6,25 @@
 /*   By: kanghyki <kanghyki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 08:33:05 by kanghyki          #+#    #+#             */
-/*   Updated: 2022/12/12 08:47:18 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/12 08:57:08 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TEXTURE_H
 # define TEXTURE_H
 
+/* define wall */
 # define TEX_WALL_COUNT (4)
-# define TEX_PISTOL_COUNT (2)
 # define WALL_TEX_WIDTH (64)
 # define WALL_TEX_HEIGHT (64)
+
+/* define pistol */
+# define TEX_PISTOL_COUNT (2)
 # define PIS_TEX_WIDTH (192)
 # define PIS_TEX_HEIGHT (192)
 # define PIS_TEX_MEG (3)
+
+/* define crosshair */
 # define CH_TEX_WIDTH (32)
 # define CH_TEX_HEIGHT (32)
 
