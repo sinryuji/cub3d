@@ -6,7 +6,7 @@
 #    By: kanghyki <kanghyki@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/01 15:23:01 by kanghyki          #+#    #+#              #
-#    Updated: 2022/12/11 12:59:49 by hyeongki         ###   ########.fr        #
+#    Updated: 2022/12/11 15:49:39 by hyeongki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,8 @@ SRC				=	main.c\
 					minimap.c\
 					hud.c\
 					texture.c\
-					error.c
+					error.c\
+					util.c
 
 OBJ_DIR			=	obj
 OBJ				=	$(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
@@ -51,6 +52,12 @@ ifndef DEBUG
 	CFLAGS	=	-Wall -Wextra -Werror
 else
 	CFLAGS	=	-g -Wall -Wextra -Werror
+endif
+
+ifndef FSANI
+	CFLAGS	=	-Wall -Wextra -Werror
+else
+	CFLAGS	=	-Wall -Wextra -Werror -fsanitize=address
 endif
 LDLIBS			=	-l ft -L $(LIBFT_DIR)\
 					-l mlx -L $(MLX_DIR) -framework OpenGL -framework AppKit
@@ -97,4 +104,7 @@ re:
 debug: fclean
 	@make DEBUG=1 all
 
-.PHONY: all clean fclean re debug
+fsani: fclean
+	@make FSANI=1 all
+
+.PHONY: all clean fclean re debug fsani
