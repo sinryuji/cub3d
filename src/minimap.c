@@ -6,7 +6,7 @@
 /*   By: kanghyki <kanghyki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 14:39:49 by kanghyki          #+#    #+#             */
-/*   Updated: 2022/12/10 23:18:54 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/11 12:34:11 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,10 @@ void	draw_minimap(t_info *info)
 
 void	init_minimap(t_info *info)
 {
-//	info->minimap.range = 10;
-	info->minimap.y_ratio = (double)MAP_HEIGHT / MINIMAP_HEIGHT;
-	info->minimap.x_ratio = (double)MAP_WIDTH / MINIMAP_WIDTH;
+	info->minimap.y_ratio = (double)MM_RADIUS * 2 / MAP_HEIGHT * 1.5;
+	info->minimap.x_ratio = (double)MM_RADIUS * 2 / MAP_WIDTH * 1.5;
 	info->minimap.img.img = mlx_new_image(info->mlx, \
-			MINIMAP_WIDTH, MINIMAP_HEIGHT);
+			MM_RADIUS * 2, MM_RADIUS * 2);
 	info->minimap.img.data = (int *)mlx_get_data_addr(info->minimap.img.img, \
 			&info->img.bpp, &info->img.size_line, &info->img.endian);
 }
@@ -39,15 +38,20 @@ void	put_minimap(t_info *info)
 {
 	int	x;
 	int	y;
+	int	*data;
 
-	y = 0;
-	while (y < MINIMAP_HEIGHT)
+	y = -MM_RADIUS;
+	while (y < 2 * MM_RADIUS)
 	{
-		x = 0;
-		while (x < MINIMAP_WIDTH)
+		x = -MM_RADIUS;
+		while (x < 2 * MM_RADIUS)
 		{
-			info->minimap.img.data[y * MINIMAP_WIDTH + x] = \
-												get_minimap_color(info, x, y);
+			data = &info->minimap.img.data[(y + MM_RADIUS) * \
+				   MM_RADIUS * 2 + (x + MM_RADIUS)];
+			if (((x * x) + (y * y)) <= MM_RADIUS * MM_RADIUS)
+				*data = get_minimap_color(info, x + MM_RADIUS, y + MM_RADIUS);
+			else
+				*data = MM_EMPTY;
 			++x;
 		}
 		++y;
@@ -56,20 +60,24 @@ void	put_minimap(t_info *info)
 
 static int	get_minimap_color(t_info *info, int x, int y)
 {
-	int	what;
+	int		what;
+	double	pos_y = y / info->minimap.y_ratio + info->pos_y - ((MM_RADIUS * 2 / info->minimap.y_ratio) / 2);
+	double	pos_x = x / info->minimap.x_ratio + info->pos_x - ((MM_RADIUS * 2 / info->minimap.x_ratio) / 2);
 
-	what = g_world_map \
-		   [(int)(y * info->minimap.y_ratio)] \
-		   [(int)(x * info->minimap.x_ratio)];
+	if (pos_y < 0 || pos_y > MAP_HEIGHT)
+		what = WALL;
+	else if (pos_x < 0 || pos_x > MAP_WIDTH)
+		what = WALL;
+	else
+		what = g_world_map[(int)pos_y][(int)pos_x];
 	if (what == WALL)
-		return (MINIMAP_WALL_COLOR);
-	else if ((int)info->pos_y == (int)(y * info->minimap.y_ratio) &&
-			(int)info->pos_x == (int)(x * info->minimap.x_ratio))
-		return (MINIMAP_PLAYER_COLOR);
-	return (MINIMAP_BG_COLOR);
+		return (MM_WALL_COLOR);
+	else if ((int)info->pos_y == (int)pos_y && (int)info->pos_x == (int)pos_x)
+		return (MM_PLAYER_COLOR);
+	return (MM_BG_COLOR);
 }
 
 void	put_image_to_mlx(t_info *info)
 {
-	mlx_put_image_to_window(info->mlx, info->win, info->minimap.img.img, 5, 5);
+	mlx_put_image_to_window(info->mlx, info->win, info->minimap.img.img, 10, 10);
 }

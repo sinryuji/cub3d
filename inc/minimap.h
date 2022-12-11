@@ -6,7 +6,7 @@
 /*   By: kanghyki <kanghyki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 20:50:25 by kanghyki          #+#    #+#             */
-/*   Updated: 2022/12/10 21:51:46 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/11 12:33:58 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,14 @@
 
 # include "img.h"
 
-# define MINIMAP_WIDTH (120)
-# define MINIMAP_HEIGHT (90)
-# define MINIMAP_BG_COLOR (0)
-# define MINIMAP_WALL_COLOR (0x665b53)
-# define MINIMAP_PLAYER_COLOR (0xe5c07b)
+# define MM_RADIUS (100)
+# define MM_BG_COLOR (0x66000000)
+# define MM_WALL_COLOR (0x66665b53)
+# define MM_PLAYER_COLOR (0x66e5c07b)
+# define MM_EMPTY (0xFF000000)
 
 typedef struct s_minimap
 {
-//	int				range;
 	double			x_ratio;
 	double			y_ratio;
 	struct s_img	img;
