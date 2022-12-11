@@ -6,7 +6,7 @@
 /*   By: kanghyki <kanghyki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 14:39:49 by kanghyki          #+#    #+#             */
-/*   Updated: 2022/12/11 12:34:11 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/11 17:22:26 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,13 @@ void	init_minimap(t_info *info)
 	info->minimap.x_ratio = (double)MM_RADIUS * 2 / MAP_WIDTH * 1.5;
 	info->minimap.img.img = mlx_new_image(info->mlx, \
 			MM_RADIUS * 2, MM_RADIUS * 2);
-	info->minimap.img.data = (int *)mlx_get_data_addr(info->minimap.img.img, \
-			&info->img.bpp, &info->img.size_line, &info->img.endian);
+	info->minimap.img.data = (int *)mlx_get_data_addr(\
+			info->minimap.img.img, \
+			&info->minimap.img.bpp, \
+			&info->minimap.img.size_line, \
+			&info->minimap.img.endian);
 }
-
+#include <unistd.h>
 void	put_minimap(t_info *info)
 {
 	int	x;
@@ -41,13 +44,13 @@ void	put_minimap(t_info *info)
 	int	*data;
 
 	y = -MM_RADIUS;
-	while (y < 2 * MM_RADIUS)
+	while (y < MM_RADIUS)
 	{
 		x = -MM_RADIUS;
-		while (x < 2 * MM_RADIUS)
+		while (x < MM_RADIUS)
 		{
 			data = &info->minimap.img.data[(y + MM_RADIUS) * \
-				   MM_RADIUS * 2 + (x + MM_RADIUS)];
+				   (MM_RADIUS * 2) + (x + MM_RADIUS)];
 			if (((x * x) + (y * y)) <= MM_RADIUS * MM_RADIUS)
 				*data = get_minimap_color(info, x + MM_RADIUS, y + MM_RADIUS);
 			else
@@ -64,9 +67,9 @@ static int	get_minimap_color(t_info *info, int x, int y)
 	double	pos_y = y / info->minimap.y_ratio + info->pos_y - ((MM_RADIUS * 2 / info->minimap.y_ratio) / 2);
 	double	pos_x = x / info->minimap.x_ratio + info->pos_x - ((MM_RADIUS * 2 / info->minimap.x_ratio) / 2);
 
-	if (pos_y < 0 || pos_y > MAP_HEIGHT)
+	if (pos_y < 0 || pos_y >= MAP_HEIGHT)
 		what = WALL;
-	else if (pos_x < 0 || pos_x > MAP_WIDTH)
+	else if (pos_x < 0 || pos_x >= MAP_WIDTH)
 		what = WALL;
 	else
 		what = g_world_map[(int)pos_y][(int)pos_x];
