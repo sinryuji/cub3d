@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 18:56:35 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/11 21:59:27 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/11 23:23:17 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,11 @@ bool	check_contain_char(char *str)
 			return (false);
 		i++;
 	}
+	return (true);
+}
+
+bool	is_map(char *str)
+{
+	(void)str;
 	return (true);
 }

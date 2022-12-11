@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 19:23:33 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/11 18:58:02 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/11 23:32:52 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,13 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 		put_err_exit(ERR_ARGC);
 	info_init(&info);
-	put_err_exit(parse_map(&info, argv[1]));
+	put_err_exit(parse(&info, argv[1]));
+	printf("%s\n", info.map.north_path);
+	printf("%s\n", info.map.south_path);
+	printf("%s\n", info.map.west_path);
+	printf("%s\n", info.map.east_path);
+	printf("%x\n", info.map.floor_color);
+	printf("%x\n", info.map.ceilling_color);
 	load_texture(&info);
 	info.win = mlx_new_window(info.mlx, WIDTH, HEIGHT, "cub3d");
 	info.img.img = mlx_new_image(info.mlx, WIDTH, HEIGHT);
