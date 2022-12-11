@@ -6,7 +6,7 @@
 /*   By: kanghyki <kanghyki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 21:08:14 by kanghyki          #+#    #+#             */
-/*   Updated: 2022/12/11 00:26:02 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/11 10:51:45 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,8 @@
 # define KEY_W (13)
 # define KEY_LEFT (123)
 # define KEY_RIGHT (124)
+
+/* define mouse mapping */
+# define MOUSE_LEFT (1)
 
 #endif

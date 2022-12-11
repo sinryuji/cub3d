@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 19:23:33 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/11 00:18:26 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/11 10:50:35 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,7 @@ int	main(void)
 	mlx_hook(info.win, X11_KEY_PRESS, 0, key_hook, &info);
 	mlx_hook(info.win, X11_WIN_DESTROY, 0, exit_hook, &info);
 	mlx_hook(info.win, X11_MOUSE_MOVE, 0, mouse_move_hook, &info);
+	mlx_hook(info.win, X11_MOUSE_CLICK, 0, mouse_click_hook, &info);
 	mlx_loop(info.mlx);
 	return (EXIT_SUCCESS);
 }

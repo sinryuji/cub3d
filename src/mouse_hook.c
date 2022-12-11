@@ -6,11 +6,12 @@
 /*   By: hyeongki <hyeongki@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 11:54:55 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/10 23:56:31 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/11 10:51:55 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
+#include <stdlib.h>
 
 static void	move_left(t_info *info, double old_dir_x, double old_plane_x)
 {
@@ -45,5 +46,14 @@ int	mouse_move_hook(int x, int y, t_info *info)
 	else if (x > info->old_x)
 		move_right(info, info->dir_x, info->plane_x);
 	info->old_x = x;
+	return (EXIT_SUCCESS);
+}
+
+int mouse_click_hook(int button, int x, int y, t_info *info)
+{
+	(void)x;
+	(void)y;
+	if (button == MOUSE_LEFT)
+		draw_shoot_pistol(info, &info->hud.pistol.img);
 	return (EXIT_SUCCESS);
 }

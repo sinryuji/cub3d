@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 11:45:25 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/11 00:58:15 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/11 10:48:56 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,12 +89,6 @@ static void	key_rotate(int key_code, t_info *info, \
 	}
 }
 
-// TODO: move
-static void	key_shoot_pistol(t_info *info)
-{
-	draw_shoot_pistol(info, &info->hud.pistol.img);
-}
-
 int	key_hook(int key_code, t_info *info)
 {
 	if (key_code == KEY_ESC)
@@ -105,9 +99,6 @@ int	key_hook(int key_code, t_info *info)
 		key_move_ad(key_code, info);
 	else if (key_code == KEY_LEFT || key_code == KEY_RIGHT)
 		key_rotate(key_code, info, info->dir_x, info->plane_x);
-	// TODO: move
-	else if (key_code == 256) // ctrl key
-		key_shoot_pistol(info);
 	if (info->pos_x < 1.3)
 		info->pos_x = 1.3;
 	if (info->pos_y < 1.3)
