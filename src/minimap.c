@@ -6,7 +6,7 @@
 /*   By: kanghyki <kanghyki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 14:39:49 by kanghyki          #+#    #+#             */
-/*   Updated: 2022/12/12 16:21:26 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/12 21:07:09 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,14 +77,14 @@ static int	get_minimap_color(t_info *info, int x, int y)
 		what = WALL;
 	else
 		what = g_world_map[(int)pos_y][(int)pos_x];
-	if (what == WALL)
-		return (MM_WALL_COLOR);
+	if ((int)info->pos_y == (int)pos_y && (int)info->pos_x == (int)pos_x)
+		return (MM_PLAYER_COLOR);
 	else if (what == DOOR_OPEN)
 		return (MM_DOOR_OPEN_COLOR);
 	else if (what == DOOR_CLOSE)
 		return (MM_DOOR_CLOSE_COLOR);
-	else if ((int)info->pos_y == (int)pos_y && (int)info->pos_x == (int)pos_x)
-		return (MM_PLAYER_COLOR);
+	else if (what == WALL)
+		return (MM_WALL_COLOR);
 	return (MM_BG_COLOR);
 }
 
