@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 21:02:43 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/12 16:01:56 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/12 16:14:53 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,11 @@ extern int	g_world_map[MAP_WIDTH][MAP_HEIGHT];
 void	calc(t_info *info);
 void	calc_step(t_info *info);
 void	calc_vector(t_info *info, int x);
-void	calc_dist(t_info *info);
+void	calc_ray_until_hit(t_info *info, bool(*condition)(int));
 
 /* raycast_02.c */
-void	calc_draw(t_info *info);
+void	calc_perp_wall_dist(t_info *info);
+void	calc_draw_info(t_info *info);
 void	calc_texture(t_info *info, int x);
 
 /* key_hook.c */

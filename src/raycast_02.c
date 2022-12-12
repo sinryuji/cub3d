@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 21:44:07 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/12 16:02:16 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/12 16:09:36 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,17 @@
 
 static int	get_wall_texture_color(t_info *info, int index);
 
-void	calc_draw(t_info *info)
+void	calc_perp_wall_dist(t_info *info)
+{
+	if (info->raycast.side == 0)
+		info->raycast.perp_wall_dist = (info->raycast.map_x - info->pos_x + \
+				(1.0 - info->raycast.step_x) / 2) / info->raycast.ray_dir_x;
+	else
+		info->raycast.perp_wall_dist = (info->raycast.map_y - info->pos_y + \
+				(1.0 - info->raycast.step_y) / 2) / info->raycast.ray_dir_y;
+}
+
+void	calc_draw_info(t_info *info)
 {
 	info->draw.line_height = (int)(HEIGHT / info->raycast.perp_wall_dist);
 	info->draw.draw_start = -info->draw.line_height / 2 + HEIGHT / 2;

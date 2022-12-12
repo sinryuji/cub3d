@@ -6,11 +6,13 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 19:43:43 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/12 16:02:02 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/12 16:14:48 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
+
+static bool	is_watchable(int where);
 
 void	calc(t_info *info)
 {
@@ -21,8 +23,9 @@ void	calc(t_info *info)
 	{
 		calc_vector(info, x);
 		calc_step(info);
-		calc_dist(info);
-		calc_draw(info);
+		calc_ray_until_hit(info, is_watchable);
+		calc_perp_wall_dist(info);
+		calc_draw_info(info);
 		calc_texture(info, x);
 		++x;
 	}
@@ -69,15 +72,7 @@ void	calc_vector(t_info *info, int x)
 	info->raycast.delta_dist_y = fabs(1 / info->raycast.ray_dir_y);
 }
 
-static bool	is_watchable(int where)
-{
-	if (where == WALL
-		|| where == DOOR_CLOSE)
-		return (true);
-	return (false);
-}
-
-void	calc_dist(t_info *info)
+void	calc_ray_until_hit(t_info *info, bool(*condition)(int))
 {
 	info->raycast.hit = 0;
 	while (info->raycast.hit == 0)
@@ -94,17 +89,19 @@ void	calc_dist(t_info *info)
 			info->raycast.map_y += info->raycast.step_y;
 			info->raycast.side = 1;
 		}
-		if (is_watchable(g_world_map[info->raycast.map_y][info->raycast.map_x]))
+		if (condition(g_world_map[info->raycast.map_y][info->raycast.map_x]))
 		{
 			info->raycast.hit = 1;
 			info->raycast.hit_stuff = \
 				g_world_map[info->raycast.map_y][info->raycast.map_x];
 		}
 	}
-	if (info->raycast.side == 0)
-		info->raycast.perp_wall_dist = (info->raycast.map_x - info->pos_x + \
-				(1.0 - info->raycast.step_x) / 2) / info->raycast.ray_dir_x;
-	else
-		info->raycast.perp_wall_dist = (info->raycast.map_y - info->pos_y + \
-				(1.0 - info->raycast.step_y) / 2) / info->raycast.ray_dir_y;
+}
+
+static bool	is_watchable(int where)
+{
+	if (where == WALL
+		|| where == DOOR_CLOSE)
+		return (true);
+	return (false);
 }
