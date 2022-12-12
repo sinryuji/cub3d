@@ -6,13 +6,38 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 21:44:07 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/12 13:43:09 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/12 16:02:16 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
 
-int	get_wall_texture_color(t_info *info, int index);
+static int	get_wall_texture_color(t_info *info, int index);
+
+void	calc_draw(t_info *info)
+{
+	info->draw.line_height = (int)(HEIGHT / info->raycast.perp_wall_dist);
+	info->draw.draw_start = -info->draw.line_height / 2 + HEIGHT / 2;
+	if (info->draw.draw_start < 0)
+		info->draw.draw_start = 0;
+	info->draw.draw_end = info->draw.line_height / 2 + HEIGHT / 2;
+	if (info->draw.draw_end >= HEIGHT)
+		info->draw.draw_end = HEIGHT - 1;
+	if (info->raycast.side == 0)
+		info->draw.wall_x = info->pos_y + \
+		info->raycast.perp_wall_dist * info->raycast.ray_dir_y;
+	else
+		info->draw.wall_x = info->pos_x + \
+		info->raycast.perp_wall_dist * info->raycast.ray_dir_x;
+	info->draw.wall_x -= floor(info->draw.wall_x);
+	info->draw.tex_x = (int)(info->draw.wall_x * (double)WALL_TEX_WIDTH);
+	if ((info->raycast.side == 0 && info->raycast.ray_dir_x < 0) || \
+			(info->raycast.side == 1 && info->raycast.ray_dir_y > 0))
+		info->draw.tex_x = WALL_TEX_WIDTH - info->draw.tex_x - 1;
+	info->draw.step = 1.0 * WALL_TEX_HEIGHT / info->draw.line_height;
+	info->draw.tex_pos = (info->draw.draw_start - \
+	HEIGHT / 2.0 + info->draw.line_height / 2.0) * info->draw.step;
+}
 
 void	calc_texture(t_info *info, int x)
 {
@@ -37,7 +62,7 @@ void	calc_texture(t_info *info, int x)
 	}
 }
 
-int	get_wall_texture_color(t_info *info, int index)
+static int	get_wall_texture_color(t_info *info, int index)
 {
 	int	ret;
 
