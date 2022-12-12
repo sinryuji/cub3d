@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 21:02:43 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/12 13:56:13 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/12 16:14:53 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,29 @@ extern int	g_world_map[MAP_WIDTH][MAP_HEIGHT];
 
 /* raycast_01.c */
 void	calc(t_info *info);
+void	calc_step(t_info *info);
+void	calc_vector(t_info *info, int x);
+void	calc_ray_until_hit(t_info *info, bool(*condition)(int));
 
 /* raycast_02.c */
+void	calc_perp_wall_dist(t_info *info);
+void	calc_draw_info(t_info *info);
 void	calc_texture(t_info *info, int x);
 
 /* key_hook.c */
 int		key_hook(int key_code, t_info *info);
 int		exit_hook(t_info *info);
+
+/* key_move.c */
+void	key_move_ws(int key_code, t_info *info);
+void	key_move_ad(int key_code, t_info *info);
+
+/* key_rotate */
+void	key_rotate(int key_code, t_info *info, \
+		double old_dir_x, double old_plane_x);
+
+/* door.c */
+void	interact_door(t_info *info);
 
 /* mouse_hook.c */
 int		mouse_move_hook(int x, int y, t_info *info);
