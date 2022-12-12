@@ -6,7 +6,7 @@
 /*   By: kanghyki <kanghyki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 15:24:28 by kanghyki          #+#    #+#             */
-/*   Updated: 2022/12/12 16:15:16 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/12 16:22:33 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ void	interact_door(t_info *info)
 static bool	is_not_empty(int where)
 {
 	if (where != EMPTY)
-		return true;
-	return false;
+		return (true);
+	return (false);
 }
 
 static int	ft_abs(int num)

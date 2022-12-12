@@ -6,12 +6,12 @@
 /*   By: hyeongki <hyeongki@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 11:03:09 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/11 17:04:24 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/12 16:17:26 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MAP_H
-#define MAP_H
+# define MAP_H
 
 # define NORTH ("NO")
 # define SOUTH ("SO")

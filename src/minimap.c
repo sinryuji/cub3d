@@ -6,7 +6,7 @@
 /*   By: kanghyki <kanghyki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 14:39:49 by kanghyki          #+#    #+#             */
-/*   Updated: 2022/12/12 11:56:00 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/12 16:21:26 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ void	put_minimap(t_info *info)
 		x = -MM_RADIUS;
 		while (x < MM_RADIUS)
 		{
-			data = &info->minimap.img.data[(y + MM_RADIUS) * \
-				   (MM_RADIUS * 2) + (x + MM_RADIUS)];
+			data = &info->minimap.img.data \
+				   [(y + MM_RADIUS) *(MM_RADIUS * 2) + (x + MM_RADIUS)];
 			if (((x * x) + (y * y)) <= MM_RADIUS * MM_RADIUS)
 				*data = get_minimap_color(info, x + MM_RADIUS, y + MM_RADIUS);
 			else
@@ -64,9 +64,13 @@ void	put_minimap(t_info *info)
 static int	get_minimap_color(t_info *info, int x, int y)
 {
 	int		what;
-	double	pos_y = y / info->minimap.y_ratio + info->pos_y - ((MM_RADIUS * 2 / info->minimap.y_ratio) / 2);
-	double	pos_x = x / info->minimap.x_ratio + info->pos_x - ((MM_RADIUS * 2 / info->minimap.x_ratio) / 2);
+	double	pos_y;
+	double	pos_x;
 
+	pos_y = y / info->minimap.y_ratio + \
+			info->pos_y - ((MM_RADIUS * 2 / info->minimap.y_ratio) / 2);
+	pos_x = x / info->minimap.x_ratio + \
+			info->pos_x - ((MM_RADIUS * 2 / info->minimap.x_ratio) / 2);
 	if (pos_y < 0 || pos_y >= MAP_HEIGHT)
 		what = WALL;
 	else if (pos_x < 0 || pos_x >= MAP_WIDTH)
@@ -86,5 +90,6 @@ static int	get_minimap_color(t_info *info, int x, int y)
 
 void	put_image_to_mlx(t_info *info)
 {
-	mlx_put_image_to_window(info->mlx, info->win, info->minimap.img.img, 10, 10);
+	mlx_put_image_to_window(\
+			info->mlx, info->win, info->minimap.img.img, 10, 10);
 }
