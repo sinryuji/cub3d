@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 18:56:35 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/11 23:23:17 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/12 21:49:34 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,25 @@ bool	check_contain_char(char *str)
 	return (true);
 }
 
-bool	is_map(char *str)
+bool	is_map(t_info *info, char *str)
 {
-	(void)str;
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == '0' || str[i] == '1' || str[i] == 'N' || str[i] == 'S' \
+				|| str[i] == 'E' || str[i] == 'W' || str[i] == ' ')
+			i++;
+		else
+		{
+			if (info->map.map_flag == true)
+				info->map.map_done = true;
+			return (false);
+		}
+	}
+	if (info->map.map_done == true)
+		return (false);
+	info->map.map_flag = true;
 	return (true);
 }

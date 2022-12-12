@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 12:52:37 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/11 22:05:10 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/12 21:55:27 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ static char	*get_err_msg(int err)
 		return (ERR_RGB_RANGE_MSG);
 	else if (err == ERR_UNKNOWN_INFO)
 		return (ERR_UNKNOWN_MSG);
+	else if (err == ERR_WRONG_MAP)
+		return (ERR_WRONG_MAP_MSG);
 	return (NULL);
 }
 

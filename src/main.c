@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 19:23:33 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/12 17:03:15 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/12 22:11:06 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,11 @@ int	main(int argc, char **argv)
 	printf("%s\n", info.map.east_path);
 	printf("%x\n", info.map.floor_color);
 	printf("%x\n", info.map.ceilling_color);
+	while (info.map.map_data)
+	{
+		printf("%s\n", info.map.map_data->data);
+		info.map.map_data = info.map.map_data->next;
+	}
 	load_texture(&info);
 	info.win = mlx_new_window(info.mlx, WIDTH, HEIGHT, "cub3d");
 	info.img.img = mlx_new_image(info.mlx, WIDTH, HEIGHT);
