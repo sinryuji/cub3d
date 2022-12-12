@@ -6,7 +6,7 @@
 /*   By: kanghyki <kanghyki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 21:03:41 by kanghyki          #+#    #+#             */
-/*   Updated: 2022/12/10 21:03:58 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/12 13:57:40 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_raycast
 	int		step_x;
 	int		step_y;
 	int		hit;
+	int		hit_stuff;
 	int		side;
 }	t_raycast;
 

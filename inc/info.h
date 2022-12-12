@@ -6,7 +6,7 @@
 /*   By: kanghyki <kanghyki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 21:04:13 by kanghyki          #+#    #+#             */
-/*   Updated: 2022/12/11 11:20:48 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/12 08:36:12 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@
 # include "hud.h"
 # include "img.h"
 # include "minimap.h"
-# include "raycast.h"
 # include "map.h"
+# include "raycast.h"
+# include "texture.h"
 
 typedef struct s_info
 {
@@ -35,13 +36,13 @@ typedef struct s_info
 	double				rot_speed;
 	double				mouse_speed;
 	int					**buf;
-	int					**texture;
 	double				old_x;
 	struct s_raycast	raycast;
 	struct s_draw		draw;
 	struct s_minimap	minimap;
 	struct s_hud		hud;
 	struct s_map		map;
+	struct s_texture	texture;
 }	t_info;
 
 #endif
