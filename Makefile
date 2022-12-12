@@ -6,7 +6,7 @@
 #    By: kanghyki <kanghyki@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/01 15:23:01 by kanghyki          #+#    #+#              #
-#    Updated: 2022/12/11 21:48:03 by hyeongki         ###   ########.fr        #
+#    Updated: 2022/12/12 17:02:17 by hyeongki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,9 @@ SRC				=	main.c\
 					raycast_01.c\
 					raycast_02.c\
 					key_hook.c\
+					key_move.c\
+					key_rotate.c\
+					key_door.c\
 					mouse_hook.c\
 					minimap.c\
 					hud.c\

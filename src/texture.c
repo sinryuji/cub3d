@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 17:23:45 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/11 16:00:10 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/12 10:04:43 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,33 +40,38 @@ void	load_texture(t_info *info)
 {
 	t_img	img;
 
-	load_xpm(info, info->texture[T_NORTH], "textures/north.xpm", &img);
-	load_xpm(info, info->texture[T_SOUTH], "textures/south.xpm", &img);
-	load_xpm(info, info->texture[T_WEST], "textures/east.xpm", &img);
-	load_xpm(info, info->texture[T_EAST], "textures/west.xpm", &img);
-	load_xpm(info, info->texture[PISTOL], "textures/pistol.xpm", &img);
-	load_xpm(info, info->texture[PISTOL_SHOOT], \
+	load_xpm(info, info->texture.wall[T_NORTH], "textures/north.xpm", &img);
+	load_xpm(info, info->texture.wall[T_SOUTH], "textures/south.xpm", &img);
+	load_xpm(info, info->texture.wall[T_WEST], "textures/east.xpm", &img);
+	load_xpm(info, info->texture.wall[T_EAST], "textures/west.xpm", &img);
+	load_xpm(info, info->texture.wall[T_OPEN], "textures/door.xpm", &img);
+	load_xpm(info, info->texture.wall[T_CLOSE], "textures/door.xpm", &img);
+	load_xpm(info, info->texture.pistol[P_STAND], "textures/pistol.xpm", &img);
+	load_xpm(info, info->texture.pistol[P_SHOOT], \
 			"textures/pistol_shoot.xpm", &img);
-	load_xpm(info, info->texture[CROSSHAIR], "textures/crosshair.xpm", &img);
+	load_xpm(info, info->texture.crosshair, "textures/crosshair.xpm", &img);
 }
 
 void	init_texture(t_info *info)
 {
 	int	i;
 
-	info->texture = (int **)malloc(sizeof(int *) * TEX_COUNT);
+	info->texture.wall = (int **)malloc(sizeof(int *) * TEX_WALL_COUNT);
+	info->texture.pistol = (int **)malloc(sizeof(int *) * TEX_PISTOL_COUNT);
+	info->texture.crosshair = (int *)ft_calloc((CH_TEX_WIDTH * \
+				CH_TEX_HEIGHT), sizeof(int));
 	i = 0;
-	while (i < TEX_COUNT)
+	while (i < TEX_WALL_COUNT)
 	{
-		if (i < 4)
-			info->texture[i] = (int *)ft_calloc((WALL_TEX_WIDTH * \
-						WALL_TEX_HEIGHT), sizeof(int));
-		else if (i < 6)
-			info->texture[i] = (int *)ft_calloc((PIS_TEX_WIDTH * \
-						PIS_TEX_HEIGHT), sizeof(int));
-		else
-			info->texture[i] = (int *)ft_calloc((CH_TEX_WIDTH * \
-						CH_TEX_HEIGHT), sizeof(int));
+		info->texture.wall[i] = (int *)ft_calloc((WALL_TEX_WIDTH * \
+					WALL_TEX_HEIGHT), sizeof(int));
+		i++;
+	}
+	i = 0;
+	while (i < TEX_PISTOL_COUNT)
+	{
+		info->texture.pistol[i] = (int *)ft_calloc((PIS_TEX_WIDTH * \
+					PIS_TEX_HEIGHT), sizeof(int));
 		i++;
 	}
 }
