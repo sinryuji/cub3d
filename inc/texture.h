@@ -6,7 +6,7 @@
 /*   By: kanghyki <kanghyki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 08:33:05 by kanghyki          #+#    #+#             */
-/*   Updated: 2022/12/12 08:57:08 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/12 09:15:54 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,13 @@
 # define CH_TEX_WIDTH (32)
 # define CH_TEX_HEIGHT (32)
 
-enum e_texture
+/* define door */
+# define TEX_DOOR_COUNT (2)
+# define DOOR_TEX_WIDTH (64)
+# define DOOR_TEX_HEIGHT (64)
+
+
+enum e_wall
 {
 	T_NORTH = 0,
 	T_SOUTH,
@@ -36,16 +42,23 @@ enum e_texture
 	T_EAST,
 };
 
-enum pistol
+enum e_pistol
 {
 	P_STAND = 0,
 	P_SHOOT
+};
+
+enum e_door
+{
+	D_OPEN = 0,
+	D_CLOSE
 };
 
 typedef struct s_texture
 {
 	int	**wall;
 	int	**pistol;
+	int	**door;
 	int	*crosshair;
 }	t_texture;
 
