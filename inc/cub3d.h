@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 21:02:43 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/12 16:17:08 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/12 17:02:52 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,8 +102,14 @@ char	*remove_n(char *str);
 
 /* util_02.c */
 bool	check_extension(char *file_path);
+bool	check_contain_char(char *str);
+bool	is_map(char *str);
 
-/* parse.c */
-int		parse_map(t_info *info, char *file_path);
+/* parse_01.c */
+int		parse(t_info *info, char *file_path);
+
+/* parse_02.c */
+int		rgb_validation(char *rgb);
+int		parse_map(t_info *info, char **split, int fd);
 
 #endif
