@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 17:23:45 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/12 09:13:56 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/12 10:04:43 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,12 @@ void	load_texture(t_info *info)
 	load_xpm(info, info->texture.wall[T_SOUTH], "textures/south.xpm", &img);
 	load_xpm(info, info->texture.wall[T_WEST], "textures/east.xpm", &img);
 	load_xpm(info, info->texture.wall[T_EAST], "textures/west.xpm", &img);
+	load_xpm(info, info->texture.wall[T_OPEN], "textures/door.xpm", &img);
+	load_xpm(info, info->texture.wall[T_CLOSE], "textures/door.xpm", &img);
 	load_xpm(info, info->texture.pistol[P_STAND], "textures/pistol.xpm", &img);
 	load_xpm(info, info->texture.pistol[P_SHOOT], \
 			"textures/pistol_shoot.xpm", &img);
 	load_xpm(info, info->texture.crosshair, "textures/crosshair.xpm", &img);
-	load_xpm(info, info->texture.door[D_OPEN], "textures/door.xpm", &img);
-	load_xpm(info, info->texture.door[D_CLOSE], "textures/door.xpm", &img);
 }
 
 void	init_texture(t_info *info)
@@ -58,7 +58,6 @@ void	init_texture(t_info *info)
 
 	info->texture.wall = (int **)malloc(sizeof(int *) * TEX_WALL_COUNT);
 	info->texture.pistol = (int **)malloc(sizeof(int *) * TEX_PISTOL_COUNT);
-	info->texture.door = (int **)malloc(sizeof(int *) * TEX_DOOR_COUNT);
 	info->texture.crosshair = (int *)ft_calloc((CH_TEX_WIDTH * \
 				CH_TEX_HEIGHT), sizeof(int));
 	i = 0;
@@ -73,13 +72,6 @@ void	init_texture(t_info *info)
 	{
 		info->texture.pistol[i] = (int *)ft_calloc((PIS_TEX_WIDTH * \
 					PIS_TEX_HEIGHT), sizeof(int));
-		i++;
-	}
-	i = 0;
-	while (i < TEX_DOOR_COUNT)
-	{
-		info->texture.door[i] = (int *)ft_calloc((DOOR_TEX_WIDTH * \
-					DOOR_TEX_HEIGHT), sizeof(int));
 		i++;
 	}
 }
