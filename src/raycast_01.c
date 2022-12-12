@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 19:43:43 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/10 23:19:42 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/12 14:00:46 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,12 @@ static void	calc_dist(t_info *info)
 			info->raycast.map_y += info->raycast.step_y;
 			info->raycast.side = 1;
 		}
-		if (g_world_map[info->raycast.map_y][info->raycast.map_x] > 0)
+		if (g_world_map[info->raycast.map_y][info->raycast.map_x] == WALL
+				|| g_world_map[info->raycast.map_y][info->raycast.map_x] == DOOR_CLOSE)
+		{
 			info->raycast.hit = 1;
+			info->raycast.hit_stuff = g_world_map[info->raycast.map_y][info->raycast.map_x];
+		}
 	}
 	if (info->raycast.side == 0)
 		info->raycast.perp_wall_dist = (info->raycast.map_x - info->pos_x + \
