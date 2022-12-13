@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 19:23:33 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/13 13:05:00 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/13 13:15:51 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,33 +74,6 @@ int	main(int argc, char **argv)
 		put_err_exit(ERR_ARGC);
 	info_init(&info);
 	put_err_exit(parse(&info, argv[1]));
-	printf("%s\n", info.map.north_path);
-	printf("%s\n", info.map.south_path);
-	printf("%s\n", info.map.west_path);
-	printf("%s\n", info.map.east_path);
-	printf("%x\n", info.map.floor_color);
-	printf("%x\n", info.map.ceilling_color);
-//	while (info.map.map_data)
-//	{
-//		printf("%s\n", info.map.map_data->data);
-//		info.map.map_data = info.map.map_data->next;
-//	}
-	int	i = 0;
-	while (i < info.map.height)
-	{
-		int j = 0;
-		while (j < info.map.width)
-		{
-			printf("%d", info.map.map[i][j]);
-			j++;
-		}
-		printf("\n");
-		i++;
-	}
-	printf("%d\n", info.map.width);
-	printf("%d\n", info.map.height);
-	printf("%f\n", info.pos_x);
-	printf("%f\n", info.pos_y);
 	load_texture(&info);
 	info.win = mlx_new_window(info.mlx, WIDTH, HEIGHT, "cub3d");
 	info.img.img = mlx_new_image(info.mlx, WIDTH, HEIGHT);
