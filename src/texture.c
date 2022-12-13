@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 17:23:45 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/12 19:58:53 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/13 14:25:01 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,16 +40,16 @@ void	load_texture(t_info *info)
 {
 	t_img	img;
 
-	load_xpm(info, info->texture.wall[T_NORTH], "textures/north.xpm", &img);
-	load_xpm(info, info->texture.wall[T_SOUTH], "textures/south.xpm", &img);
-	load_xpm(info, info->texture.wall[T_WEST], "textures/east.xpm", &img);
-	load_xpm(info, info->texture.wall[T_EAST], "textures/west.xpm", &img);
-	load_xpm(info, info->texture.wall[T_OPEN], "textures/door.xpm", &img);
-	load_xpm(info, info->texture.wall[T_CLOSE], "textures/door.xpm", &img);
-	load_xpm(info, info->texture.pistol[P_STAND], "textures/pistol.xpm", &img);
+	load_xpm(info, info->texture.wall[T_NORTH], info->map.north_path, &img);
+	load_xpm(info, info->texture.wall[T_SOUTH], info->map.south_path, &img);
+	load_xpm(info, info->texture.wall[T_WEST], info->map.west_path, &img);
+	load_xpm(info, info->texture.wall[T_EAST], info->map.east_path, &img);
+	load_xpm(info, info->texture.wall[T_OPEN], TEX_DOOR_PATH, &img);
+	load_xpm(info, info->texture.wall[T_CLOSE], TEX_DOOR_PATH, &img);
+	load_xpm(info, info->texture.pistol[P_STAND], TEX_PISTOL_PATH, &img);
 	load_xpm(info, info->texture.pistol[P_SHOOT], \
-			"textures/pistol_shoot.xpm", &img);
-	load_xpm(info, info->texture.crosshair, "textures/crosshair.xpm", &img);
+			TEX_PISTOL_SHOOT_PATH, &img);
+	load_xpm(info, info->texture.crosshair, TEX_CROSSHAIR_PATH, &img);
 }
 
 void	init_texture(t_info *info)

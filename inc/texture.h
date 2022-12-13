@@ -6,7 +6,7 @@
 /*   By: kanghyki <kanghyki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 08:33:05 by kanghyki          #+#    #+#             */
-/*   Updated: 2022/12/12 10:02:08 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/13 14:23:44 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,12 @@
 /* define crosshair */
 # define CH_TEX_WIDTH (32)
 # define CH_TEX_HEIGHT (32)
+
+/* define texture path */
+# define TEX_DOOR_PATH "textures/door.xpm"
+# define TEX_PISTOL_PATH "textures/pistol.xpm"
+# define TEX_PISTOL_SHOOT_PATH "textures/pistol_shoot.xpm"
+# define TEX_CROSSHAIR_PATH "textures/crosshair.xpm"
 
 enum e_wall
 {
