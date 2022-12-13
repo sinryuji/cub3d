@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 18:56:35 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/12 21:49:34 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/13 09:27:55 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ bool	is_map(t_info *info, char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (str[i] == '0' || str[i] == '1' || str[i] == 'N' || str[i] == 'S' \
+		if ((str[i] >= '0' && str[i] <= '3') || str[i] == 'N' || str[i] == 'S' \
 				|| str[i] == 'E' || str[i] == 'W' || str[i] == ' ')
 			i++;
 		else

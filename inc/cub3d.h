@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 21:02:43 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/12 22:03:11 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/13 09:59:49 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ int		parse(t_info *info, char *file_path);
 
 /* parse_02.c */
 int		rgb_validation(char *rgb);
-int		parse_map(t_info *info, char *line);
+int		parse_map(t_info *info);
 
 /* parse_03.c */
 int		push_map_data(t_info *info, char *data);
