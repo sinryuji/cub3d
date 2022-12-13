@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 21:48:44 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/13 16:25:49 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/13 17:29:30 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	rgb_validation(char *rgb)
 			return (ERR_RGB_RANGE);
 		i++;
 	}
+	ft_split_free(split);
 	return (SUCCESS);
 }
 
