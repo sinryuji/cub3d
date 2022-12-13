@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 19:23:33 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/13 13:15:51 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/13 13:41:19 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,6 @@ static void	info_init(t_info *info)
 	int	i;
 
 	info->mlx = mlx_init();
-	info->pos_x = 3.0;
-	info->pos_y = 3.0;
-	info->dir_x = 0.0;
-	info->dir_y = 1.0;
-	info->plane_x = -0.66;
-	info->plane_y = 0.0;
 	info->move_speed = 0.25;
 	info->rot_speed = 0.1;
 	info->mouse_speed = 0.03;
@@ -34,8 +28,6 @@ static void	info_init(t_info *info)
 		info->buf[i++] = (int *)ft_calloc(WIDTH, sizeof(int));
 	init_texture(info);
 	init_hud(info);
-//	ft_memset(&info->raycast, 0, sizeof(t_raycast));
-//	ft_memset(&info->draw, 0, sizeof(t_draw));
 }
 
 static void	draw(t_info *info)

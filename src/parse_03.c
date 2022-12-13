@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 23:54:01 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/13 12:46:38 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/13 13:42:36 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,6 @@ int	push_map_data(t_info *info, char *data)
 	t_map_data	*new;
 	int			width_tmp;
 
-	if (data == NULL)
-		return (ERR_WRONG_MAP);
 	new = new_map_data(data);
 	width_tmp = ft_strlen(new->data);
 	if (width_tmp >= info->map.width)

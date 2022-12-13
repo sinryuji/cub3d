@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 12:51:11 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/13 12:22:33 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/13 13:42:47 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@
 # define ERR_RGB_VAL_MSG ("ERROR\nInvalid rgb value\n")
 # define ERR_RGB_RANGE_MSG ("ERROR\nInvalid rgb value range\n")
 # define ERR_UNKNOWN_MSG ("ERROR\nUnknown information type\n")
-# define ERR_WRONG_MAP_MSG ("ERROR\nMap information is wrong\n")
 # define ERR_NO_PLAYER_MSG ("ERROR\nNo player on the map\n")
 # define ERR_NOT_CLOSED_MAP_MSG ("ERROR\nThis map is not closed\n")
 
@@ -44,7 +43,6 @@ enum e_error
 	ERR_RGB_LEN,
 	ERR_RGB_VAL,
 	ERR_RGB_RANGE,
-	ERR_WRONG_MAP,
 	ERR_UNKNOWN_INFO,
 	ERR_NO_PLAYER,
 	ERR_NOT_CLOSED_MAP

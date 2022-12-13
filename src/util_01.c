@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 15:14:13 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/12 18:04:57 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/13 13:44:15 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ bool	check_split_len(char **split, int n)
 
 int	rgb_to_int(char *str)
 {
-	int	red;
-	int	green;
-	int	blue;
+	int		red;
+	int		green;
+	int		blue;
 	char	**split;
 
 	split = ft_split(str, ',');
@@ -57,9 +57,9 @@ bool	is_wall(char *str)
 bool	is_floor(char *str)
 {
 	if (ft_strcmp(str, FLOOR) == 0)
-		return(true);
+		return (true);
 	else if (ft_strcmp(str, CEILLING) == 0)
-		return(true);
+		return (true);
 	return (false);
 }
 

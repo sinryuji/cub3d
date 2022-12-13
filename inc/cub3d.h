@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 21:02:43 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/13 13:11:18 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/13 13:57:38 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,5 +114,14 @@ int		parse_map(t_info *info);
 /* parse_03.c */
 int		push_map_data(t_info *info, char *data);
 void	free_data(t_map_data **map_data);
+
+/* set_dir.c */
+void	set_dir(t_info *info, int dir);
+
+/* validation_surround_map.c */
+void	delete_map_visit(t_info *info);
+void	init_map_visit(t_info *info);
+int		check_surround(t_info *info, int x, int y);
+int		is_map_surround(t_info *info);
 
 #endif

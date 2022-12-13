@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 18:55:09 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/13 11:14:10 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/13 13:43:32 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static int	parse_wall(t_info *info, char **split)
 {
 	int		fd;
+
 	if (check_split_len(split, 2) == false)
 		return (ERR_WALL_INFO_LEN);
 	fd = open(split[1], O_RDONLY);

@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 12:52:37 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/13 12:23:09 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/13 13:42:39 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,6 @@ static char	*get_err_msg(int err)
 		return (ERR_RGB_RANGE_MSG);
 	else if (err == ERR_UNKNOWN_INFO)
 		return (ERR_UNKNOWN_MSG);
-	else if (err == ERR_WRONG_MAP)
-		return (ERR_WRONG_MAP_MSG);
 	else if (err == ERR_NO_PLAYER)
 		return (ERR_NO_PLAYER_MSG);
 	else if (err == ERR_NOT_CLOSED_MAP)

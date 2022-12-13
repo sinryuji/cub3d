@@ -6,7 +6,7 @@
 /*   By: kanghyki <kanghyki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 14:39:49 by kanghyki          #+#    #+#             */
-/*   Updated: 2022/12/13 13:06:39 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/13 13:43:08 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	put_minimap(t_info *info)
 		while (x < MM_RADIUS)
 		{
 			data = &info->minimap.img.data \
-				   [(y + MM_RADIUS) *(MM_RADIUS * 2) + (x + MM_RADIUS)];
+				[(y + MM_RADIUS) *(MM_RADIUS * 2) + (x + MM_RADIUS)];
 			if (((x * x) + (y * y)) <= MM_RADIUS * MM_RADIUS)
 				*data = get_minimap_color(info, x + MM_RADIUS, y + MM_RADIUS);
 			else
