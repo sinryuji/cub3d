@@ -6,7 +6,7 @@
 /*   By: kanghyki <kanghyki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 20:50:25 by kanghyki          #+#    #+#             */
-/*   Updated: 2022/12/12 11:58:46 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/13 22:04:38 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@
 
 typedef struct s_minimap
 {
-	double			x_ratio;
-	double			y_ratio;
+	double			ratio;
 	struct s_img	img;
 }	t_minimap;
 
