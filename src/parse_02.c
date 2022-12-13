@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 21:48:44 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/13 11:59:58 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/13 12:46:32 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,90 @@ int	check_player(t_info *info)
 	return (ERR_NO_PLAYER);
 }
 
+void	init_map_visit(t_info *info)
+{
+	int	i;
+
+	i = 0;
+	info->map.visit = (int **)malloc(sizeof(int *) * info->map.height);
+	while (i < info->map.height)
+	{
+		info->map.visit[i] = ft_calloc(info->map.width, sizeof(int));
+		++i;
+	}
+}
+
+void	delete_map_visit(t_info *info)
+{
+	int	i;
+
+	i = 0;
+	while (i < info->map.height)
+	{
+		free(info->map.visit[i]);
+		++i;
+	}
+	free(info->map.visit);
+}
+
+int	check_surround(t_info *info, int x, int y)
+{
+	int	dy[4] = {1, 0, -1,  0};
+	int	dx[4] = {0, 1, 0, -1};
+	int	i;
+
+	i = 0;
+	if ((x < 0 || x >= info->map.width || y < 0 || y >= info->map.height)
+		|| info->map.map[y][x] == 9)
+		return (ERR_NOT_CLOSED_MAP);
+	if (info->map.visit[y][x] == 1 || info->map.map[y][x] == 1)
+		return (SUCCESS);
+	info->map.visit[y][x] = 1;
+	while (i < 4)
+	{
+		if (check_surround(info, x + dx[i], y + dy[i]) != SUCCESS)
+			return (ERR_NOT_CLOSED_MAP);
+		++i;
+	}
+	return (SUCCESS);
+}
+
+int	is_map_surround(t_info *info)
+{
+	int	y;
+	int	x;
+
+	y = 0;
+	while (y < info->map.height)
+	{
+		x = 0;
+		while (x < info->map.width)
+		{
+			if (info->map.map[y][x] == 0 && info->map.visit[y][x] == 0)
+				if (check_surround(info, x, y) != SUCCESS)
+					return (ERR_NOT_CLOSED_MAP);
+			++x;
+		}
+		++y;
+	}
+	return (SUCCESS);
+}
+
 int	validate_map(t_info *info)
 {
 	int	ret;
 
 	ret = check_player(info);
+	if (ret != SUCCESS)
+		return (ret);
+	init_map_visit(info);
+	ret = is_map_surround(info);
+	delete_map_visit(info);
+	if (ret != SUCCESS)
+		return (ret);
+	init_map_visit(info);
+	ret = check_surround(info, info->pos_x, info->pos_y);
+	delete_map_visit(info);
 	if (ret != SUCCESS)
 		return (ret);
 	return (SUCCESS);
