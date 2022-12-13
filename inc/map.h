@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 11:03:09 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/13 12:16:03 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/13 12:50:29 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct s_map_data
 typedef struct s_map
 {
 	int					**map;
+	int					**visit;
 	char				*north_path;
 	char				*south_path;
 	char				*west_path;
