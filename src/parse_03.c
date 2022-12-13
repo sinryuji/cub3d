@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 23:54:01 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/13 13:42:36 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/13 14:04:12 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ static	t_map_data	*get_last_node(t_map_data *map_data)
 
 void	free_data(t_map_data **map_data)
 {
-	free(*map_data);
 	free((*map_data)->data);
+	free(*map_data);
 }
 
 int	push_map_data(t_info *info, char *data)
