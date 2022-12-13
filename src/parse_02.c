@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 21:48:44 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/13 12:50:37 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/13 13:11:42 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,7 +148,7 @@ int	check_surround(t_info *info, int x, int y)
 
 	i = 0;
 	if ((x < 0 || x >= info->map.width || y < 0 || y >= info->map.height)
-		|| info->map.map[y][x] == 9)
+		|| info->map.map[y][x] == OUT_OF_RANGE)
 		return (ERR_NOT_CLOSED_MAP);
 	if (info->map.visit[y][x] == 1 || info->map.map[y][x] == 1)
 		return (SUCCESS);
@@ -216,7 +216,7 @@ int parse_map(t_info *info)
 		info->map.map[i] = (int *)malloc(sizeof(int) * info->map.width);
 		j = 0;
 		while (j < info->map.width)
-			info->map.map[i][j++] = 9;
+			info->map.map[i][j++] = OUT_OF_RANGE;
 		j = 0;
 		while (j < (int)ft_strlen(info->map.map_data->data))
 			convert_data(info, i, j++);

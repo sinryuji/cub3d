@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 21:02:43 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/13 13:05:07 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/13 13:11:18 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ enum e_map
 	E = 5,
 	W,
 	S,
-	N
+	N,
+	OUT_OF_RANGE
 };
 
 /* raycast_01.c */
