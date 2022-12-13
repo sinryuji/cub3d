@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 12:52:37 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/13 15:33:56 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/13 16:10:02 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ static char	*get_err_msg_02(int err)
 {
 	if (err == ERR_DUP_PLAYER)
 		return (ERR_DUP_PLAYER_MSG);
+	if (err == ERR_EMPTY_INFO)
+		return (ERR_EMPTH_INFO_MSG);
 	return (NULL);
 }
 

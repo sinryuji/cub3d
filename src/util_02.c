@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 18:56:35 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/13 09:27:55 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/13 16:06:46 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,10 @@ bool	is_map(t_info *info, char *str)
 		return (false);
 	info->map.map_flag = true;
 	return (true);
+}
+
+void	free_data(t_map_data **map_data)
+{
+	free((*map_data)->data);
+	free(*map_data);
 }

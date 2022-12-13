@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 18:55:09 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/13 15:25:04 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/13 16:20:09 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,5 +102,11 @@ int	parse(t_info *info, char *file_path)
 	info->map.map_done = false;
 	info->map.width = 0;
 	info->map.height = 0;
+	info->map.north_path = NULL;
+	info->map.south_path = NULL;
+	info->map.west_path = NULL;
+	info->map.east_path = NULL;
+	info->map.floor_color = -1;
+	info->map.ceilling_color = -1;
 	return (parse_loop(info, fd));
 }

@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 21:02:43 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/13 15:51:47 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/13 16:16:13 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ char	*remove_n(char *str);
 bool	check_extension(char *file_path);
 bool	check_contain_char(char *str);
 bool	is_map(t_info *info, char *str);
+void	free_data(t_map_data **map_data);
 
 /* parse_01.c */
 int		parse(t_info *info, char *file_path);
@@ -113,8 +114,8 @@ int		parse_map(t_info *info);
 
 /* parse_03.c */
 int		push_map_data(t_info *info, char *data);
-void	free_data(t_map_data **map_data);
 int		set_player(t_info *info, int i, int j, bool *found);
+int		validate_fill(t_info *info);
 
 /* set_dir.c */
 void	set_dir(t_info *info, int dir);

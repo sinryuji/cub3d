@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 23:54:01 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/13 15:59:45 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/13 16:25:56 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,6 @@ static	t_map_data	*get_last_node(t_map_data *map_data)
 	while (map_data->next)
 		map_data = map_data->next;
 	return (map_data);
-}
-
-void	free_data(t_map_data **map_data)
-{
-	free((*map_data)->data);
-	free(*map_data);
 }
 
 int	push_map_data(t_info *info, char *data)
@@ -70,5 +64,24 @@ int	set_player(t_info *info, int i, int j, bool *found)
 		*player = 0;
 		*found = true;
 	}
+	return (SUCCESS);
+}
+
+int	validate_fill(t_info *info)
+{
+	if (info->map.north_path == NULL)
+		return (ERR_EMPTY_INFO);
+	if (info->map.south_path == NULL)
+		return (ERR_EMPTY_INFO);
+	if (info->map.west_path == NULL)
+		return (ERR_EMPTY_INFO);
+	if (info->map.east_path == NULL)
+		return (ERR_EMPTY_INFO);
+	if (info->map.floor_color == -1)
+		return (ERR_EMPTY_INFO);
+	if (info->map.ceilling_color == -1)
+		return (ERR_EMPTY_INFO);
+	if (info->map.map_flag == false)
+		return (ERR_EMPTY_INFO);
 	return (SUCCESS);
 }

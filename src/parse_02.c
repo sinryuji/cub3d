@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 21:48:44 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/13 16:00:50 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/13 16:25:49 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,9 @@ int	validate_map(t_info *info)
 {
 	int	ret;
 
+	ret = validate_fill(info);
+	if (ret != SUCCESS)
+		return (ret);
 	ret = check_player(info);
 	if (ret != SUCCESS)
 		return (ret);
