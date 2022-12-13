@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 18:55:09 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/13 14:32:26 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/13 15:25:04 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static int	parse_floor(t_info *info, char **split)
 
 static int	parse_handling(t_info *info, char *line, char **split)
 {
-	if (line[0] == '\n')
+	if (split[0] == NULL || *line == '\n')
 	{
 		if (info->map.map_flag == true)
 			info->map.map_done = true;
