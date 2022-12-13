@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 19:23:33 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/13 13:41:19 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/13 21:12:10 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 		put_err_exit(ERR_ARGC);
+	if (validate_texture() == false)
+		put_err_exit(ERR_TEX_FILE_OPEN);
 	info_init(&info);
 	put_err_exit(parse(&info, argv[1]));
 	load_texture(&info);

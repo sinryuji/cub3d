@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 21:02:43 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/13 16:41:44 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/13 21:08:31 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ void	draw_pistol(t_info *info, t_img *pistol, int status);
 /* texture.c */
 void	load_texture(t_info *info);
 void	init_texture(t_info *info);
+bool	validate_texture(void);
 
 /* error.c */
 void	put_err_exit(int err);

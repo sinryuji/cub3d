@@ -6,11 +6,34 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 17:23:45 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/13 14:25:01 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/13 21:09:38 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
+
+bool	validate_texture(void)
+{
+	int	fd;
+
+	fd = open(TEX_DOOR_PATH, O_RDONLY);
+	if (fd == -1)
+		return(false); 
+	close(fd);
+	fd = open(TEX_PISTOL_PATH, O_RDONLY);
+	if (fd == -1)
+		return(false); 
+	close(fd);
+	fd = open(TEX_PISTOL_SHOOT_PATH, O_RDONLY);
+	if (fd == -1)
+		return(false); 
+	close(fd);
+	fd = open(TEX_CROSSHAIR_PATH, O_RDONLY);
+	if (fd == -1)
+		return(false); 
+	close(fd);
+	return (true);
+}
 
 static void	load_xpm(t_info *info, int *texture, char *path, t_img *img)
 {
