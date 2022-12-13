@@ -6,13 +6,13 @@
 /*   By: hyeongki <hyeongki@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 12:52:37 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/13 14:42:02 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/13 15:33:56 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/error.h"
 
-static char	*get_err_msg(int err)
+static char	*get_err_msg_01(int err)
 {
 	if (err == ERR_ARGC)
 		return (ERR_ARGC_MSG);
@@ -41,13 +41,23 @@ static char	*get_err_msg(int err)
 	return (NULL);
 }
 
+static char	*get_err_msg_02(int err)
+{
+	if (err == ERR_DUP_PLAYER)
+		return (ERR_DUP_PLAYER_MSG);
+	return (NULL);
+}
+
 void	put_err_exit(int err)
 {
 	char	*err_msg;	
 
 	if (err == SUCCESS)
 		return ;
-	err_msg = get_err_msg(err);
+	if (err < 13)
+		err_msg = get_err_msg_01(err);
+	else
+		err_msg = get_err_msg_02(err);
 	write(STDERR_FILENO, err_msg, ft_strlen(err_msg));
 	exit(EXIT_FAILURE);
 }

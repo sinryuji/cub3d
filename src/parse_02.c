@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 21:48:44 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/13 13:57:54 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/13 16:00:50 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,30 +55,26 @@ static void	convert_data(t_info *info, int i, int j)
 
 int	check_player(t_info *info)
 {
-	int	i;
-	int	j;
-	int	player;
+	int		i;
+	int		j;
+	bool	found;
 
 	i = 0;
+	found = false;
 	while (i < info->map.height)
 	{
 		j = 0;
 		while (j < info->map.width)
 		{
-			player = info->map.map[i][j];
-			if (player >= E && player <= N)
-			{
-				info->pos_x = j;
-				info->pos_y = i;
-				info->map.map[i][j] = 0;
-				set_dir(info, player);
-				return (SUCCESS);
-			}
+			if (set_player(info, i, j, &found) != SUCCESS)
+				return (ERR_DUP_PLAYER);
 			j++;
 		}
 		i++;
 	}
-	return (ERR_NO_PLAYER);
+	if (found == false)
+		return (ERR_NO_PLAYER);
+	return (SUCCESS);
 }
 
 int	validate_map(t_info *info)

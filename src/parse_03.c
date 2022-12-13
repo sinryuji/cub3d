@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 23:54:01 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/13 15:25:02 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/13 15:59:45 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,24 @@ int	push_map_data(t_info *info, char *data)
 	else
 		get_last_node(info->map.map_data)->next = new;
 	info->map.height++;
+	return (SUCCESS);
+}
+
+int	set_player(t_info *info, int i, int j, bool *found)
+{
+	int	*player;
+
+	player = &info->map.map[i][j];
+	if (*player >= E && *player <= N)
+	{
+		if (*found == true)
+			return (ERR_DUP_PLAYER);
+		info->pos_x = j;
+		info->pos_x = j;
+		info->pos_y = i;
+		set_dir(info, *player);
+		*player = 0;
+		*found = true;
+	}
 	return (SUCCESS);
 }
