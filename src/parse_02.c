@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 21:48:44 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/13 11:00:25 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/13 11:59:58 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,41 @@ static void	convert_data(t_info *info, int i, int j)
 		*target = 8;
 }
 
+int	check_player(t_info *info)
+{
+	int	i;
+	int	j;
+	
+	i = 0;
+	while (i < info->map.height)
+	{
+		j = 0;
+		while (j < info->map.width)
+		{
+			if (info->map.map[i][j] >= 5 && info->map.map[i][j] <= 8)
+			{
+				info->pos_x = j;
+				info->pos_y = i;
+				info->map.map[i][j] = 0;				
+				return (SUCCESS);
+			}
+			j++;
+		}
+		i++;
+	}
+	return (ERR_NO_PLAYER);
+}
+
+int	validate_map(t_info *info)
+{
+	int	ret;
+
+	ret = check_player(info);
+	if (ret != SUCCESS)
+		return (ret);
+	return (SUCCESS);
+}
+
 int parse_map(t_info *info)
 {
 	int	i;
@@ -72,6 +107,5 @@ int parse_map(t_info *info)
 		info->map.map_data = info->map.map_data->next;
 		i++;
 	}
-	
-	return (SUCCESS);	
+	return (validate_map(info));
 }
