@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 21:02:43 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/13 09:59:49 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/13 12:13:15 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,11 @@ enum e_map
 	EMPTY,
 	WALL,
 	DOOR_OPEN,
-	DOOR_CLOSE
+	DOOR_CLOSE,
+	E = 5,
+	W,
+	S,
+	N
 };
 
 extern int	g_world_map[MAP_WIDTH][MAP_HEIGHT];
@@ -114,5 +118,6 @@ int		parse_map(t_info *info);
 
 /* parse_03.c */
 int		push_map_data(t_info *info, char *data);
+void	free_data(t_map_data **map_data);
 
 #endif

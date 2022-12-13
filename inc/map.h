@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 11:03:09 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/12 21:49:01 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/13 12:16:03 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,6 @@ typedef struct s_map
 	int					ceilling_color;
 	int					width;
 	int					height;
-	int					pos_x;
-	int					pos_y;
-	int					dir;
 	bool				map_flag;
 	bool				map_done;
 	struct s_map_data	*map_data;

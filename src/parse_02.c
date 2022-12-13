@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 21:48:44 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/13 11:59:58 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/13 12:46:22 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,19 +44,53 @@ static void	convert_data(t_info *info, int i, int j)
 	if (c == '0' || c == '1' || c == '2' || c == '3')
 		*target = ft_atoi(&c);
 	else if (c == 'E')
-		*target = 5;
+		*target = E;
 	else if (c == 'W')
-		*target = 6;
+		*target = W;
 	else if (c == 'S')
-		*target = 7;
+		*target = S;
 	else if (c == 'N')
-		*target = 8;
+		*target = N;
+}
+
+void	set_dir(t_info *info, int dir)
+{
+	if (dir == E)
+	{
+		info->dir_x = 0.0;
+		info->dir_y = 1.0;
+		info->plane_x = -0.66;
+		info->plane_y = 0.0;
+	}
+	else if (dir == W)
+	{
+		info->dir_x = -1.0;
+		info->dir_y = 0.0;
+		info->plane_x = 0.0;
+		info->plane_y = -0.6;
+	}
+	else if (dir == S)
+	{
+		info->dir_x = 0.0;
+		info->dir_y = -1.0;
+		info->plane_x = 0.66;
+		info->plane_y = 0.0;
+	}
+	else if (dir == N)
+	{
+		info->dir_x = 0.0;
+		info->dir_y = 1.0;
+		info->plane_x = -0.66;
+		info->plane_y = 0.0;
+	}
+
 }
 
 int	check_player(t_info *info)
 {
 	int	i;
 	int	j;
+	int player;
 	
 	i = 0;
 	while (i < info->map.height)
@@ -64,11 +98,13 @@ int	check_player(t_info *info)
 		j = 0;
 		while (j < info->map.width)
 		{
-			if (info->map.map[i][j] >= 5 && info->map.map[i][j] <= 8)
+			player = info->map.map[i][j];
+			if (player >= E && player <= N)
 			{
 				info->pos_x = j;
 				info->pos_y = i;
-				info->map.map[i][j] = 0;				
+				info->map.map[i][j] = 0;
+				set_dir(info, player);
 				return (SUCCESS);
 			}
 			j++;
@@ -90,8 +126,9 @@ int	validate_map(t_info *info)
 
 int parse_map(t_info *info)
 {
-	int	i;
-	int	j;
+	int			i;
+	int			j;
+	t_map_data	*tmp;
 
 	info->map.map = (int **)malloc(sizeof(int *) * info->map.height);
 	i = 0;
@@ -104,7 +141,9 @@ int parse_map(t_info *info)
 		j = 0;
 		while (j < (int)ft_strlen(info->map.map_data->data))
 			convert_data(info, i, j++);
+		tmp = info->map.map_data;
 		info->map.map_data = info->map.map_data->next;
+		free_data(&tmp);
 		i++;
 	}
 	return (validate_map(info));
