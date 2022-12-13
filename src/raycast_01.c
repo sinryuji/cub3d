@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 19:43:43 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/12 16:14:48 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/13 13:07:06 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,11 +89,11 @@ void	calc_ray_until_hit(t_info *info, bool(*condition)(int))
 			info->raycast.map_y += info->raycast.step_y;
 			info->raycast.side = 1;
 		}
-		if (condition(g_world_map[info->raycast.map_y][info->raycast.map_x]))
+		if (condition(info->map.map[info->raycast.map_y][info->raycast.map_x]))
 		{
 			info->raycast.hit = 1;
 			info->raycast.hit_stuff = \
-				g_world_map[info->raycast.map_y][info->raycast.map_x];
+				info->map.map[info->raycast.map_y][info->raycast.map_x];
 		}
 	}
 }

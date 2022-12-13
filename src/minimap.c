@@ -6,7 +6,7 @@
 /*   By: kanghyki <kanghyki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 14:39:49 by kanghyki          #+#    #+#             */
-/*   Updated: 2022/12/12 21:07:09 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/13 13:06:39 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void	draw_minimap(t_info *info)
 
 void	init_minimap(t_info *info)
 {
-	info->minimap.y_ratio = (double)MM_RADIUS * 2 / MAP_HEIGHT * 1.5;
-	info->minimap.x_ratio = (double)MM_RADIUS * 2 / MAP_WIDTH * 1.5;
+	info->minimap.y_ratio = (double)MM_RADIUS * 2 / info->map.height * 1.5;
+	info->minimap.x_ratio = (double)MM_RADIUS * 2 / info->map.width * 1.5;
 	info->minimap.img.img = mlx_new_image(info->mlx, \
 			MM_RADIUS * 2, MM_RADIUS * 2);
 	info->minimap.img.data = (int *)mlx_get_data_addr(\
@@ -71,12 +71,12 @@ static int	get_minimap_color(t_info *info, int x, int y)
 			info->pos_y - ((MM_RADIUS * 2 / info->minimap.y_ratio) / 2);
 	pos_x = x / info->minimap.x_ratio + \
 			info->pos_x - ((MM_RADIUS * 2 / info->minimap.x_ratio) / 2);
-	if (pos_y < 0 || pos_y >= MAP_HEIGHT)
+	if (pos_y < 0 || pos_y >= info->map.height)
 		what = WALL;
-	else if (pos_x < 0 || pos_x >= MAP_WIDTH)
+	else if (pos_x < 0 || pos_x >= info->map.width)
 		what = WALL;
 	else
-		what = g_world_map[(int)pos_y][(int)pos_x];
+		what = info->map.map[(int)pos_y][(int)pos_x];
 	if ((int)info->pos_y == (int)pos_y && (int)info->pos_x == (int)pos_x)
 		return (MM_PLAYER_COLOR);
 	else if (what == DOOR_OPEN)

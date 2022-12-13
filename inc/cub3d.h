@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 21:02:43 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/13 12:13:15 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/13 13:05:07 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,6 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <math.h>
-
-/* define map */
-# define MAP_WIDTH (24)
-# define MAP_HEIGHT (24)
 
 /* define resolution */
 # define WIDTH (960)
@@ -48,8 +44,6 @@ enum e_map
 	S,
 	N
 };
-
-extern int	g_world_map[MAP_WIDTH][MAP_HEIGHT];
 
 /* raycast_01.c */
 void	calc(t_info *info);

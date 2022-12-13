@@ -6,7 +6,7 @@
 /*   By: kanghyki <kanghyki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 15:24:28 by kanghyki          #+#    #+#             */
-/*   Updated: 2022/12/12 16:22:33 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/13 13:05:30 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	interact_door(t_info *info)
 		&& (ft_abs(info->pos_x - info->raycast.map_x) < 2
 			&& ft_abs(info->pos_y - info->raycast.map_y) < 2))
 	{
-		where = &g_world_map[info->raycast.map_y][info->raycast.map_x];
+		where = &info->map.map[info->raycast.map_y][info->raycast.map_x];
 		if (what == DOOR_CLOSE)
 			*where = DOOR_OPEN;
 		else
