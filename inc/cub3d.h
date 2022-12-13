@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 21:02:43 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/13 16:16:13 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/13 16:41:44 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,10 @@ int		parse_map(t_info *info);
 int		push_map_data(t_info *info, char *data);
 int		set_player(t_info *info, int i, int j, bool *found);
 int		validate_fill(t_info *info);
+
+/* parse_04.c */
+int		push_wall_path(char **target, char *path);
+int		push_floor_color(int *target, int color);
 
 /* set_dir.c */
 void	set_dir(t_info *info, int dir);

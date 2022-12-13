@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 18:55:09 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/13 16:20:09 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/13 16:42:47 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ static int	parse_wall(t_info *info, char **split)
 		return (ERR_TEX_FILE_OPEN);
 	close(fd);
 	if (ft_strcmp(split[0], NORTH) == 0)
-		info->map.north_path = ft_strdup(split[1]);
+		return (push_wall_path(&info->map.north_path, split[1]));
 	else if (ft_strcmp(split[0], SOUTH) == 0)
-		info->map.south_path = ft_strdup(split[1]);
+		return (push_wall_path(&info->map.south_path, split[1]));
 	else if (ft_strcmp(split[0], WEST) == 0)
-		info->map.west_path = ft_strdup(split[1]);
+		return (push_wall_path(&info->map.west_path, split[1]));
 	else if (ft_strcmp(split[0], EAST) == 0)
-		info->map.east_path = ft_strdup(split[1]);
+		return (push_wall_path(&info->map.east_path, split[1]));
 	return (SUCCESS);
 }
 
@@ -43,9 +43,11 @@ static int	parse_floor(t_info *info, char **split)
 	if (ret != SUCCESS)
 		return (ret);
 	if (ft_strcmp(split[0], FLOOR) == 0)
-		info->map.floor_color = rgb_to_int(split[1]);
+		return (push_floor_color(&info->map.floor_color, \
+					rgb_to_int(split[1])));
 	else if (ft_strcmp(split[0], CEILLING) == 0)
-		info->map.ceilling_color = rgb_to_int(split[1]);
+		return (push_floor_color(&info->map.ceilling_color, \
+					rgb_to_int(split[1])));
 	return (SUCCESS);
 }
 

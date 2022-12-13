@@ -6,7 +6,7 @@
 #    By: kanghyki <kanghyki@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/01 15:23:01 by kanghyki          #+#    #+#              #
-#    Updated: 2022/12/13 13:58:18 by hyeongki         ###   ########.fr        #
+#    Updated: 2022/12/13 16:28:44 by hyeongki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,7 @@ SRC				=	main.c\
 					parse_01.c\
 					parse_02.c\
 					parse_03.c\
+					parse_04.c\
 					set_dir.c\
 					validation_surround_map.c
 

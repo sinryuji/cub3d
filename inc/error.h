@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 12:51:11 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/13 16:09:32 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/13 16:32:58 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 # define ERR_NOT_CLOSED_MAP_MSG "Error\nThis map is not closed\n"
 # define ERR_DUP_PLAYER_MSG "Error\nCub3d must have only one player\n"
 # define ERR_EMPTH_INFO_MSG "Error\nEssentail information is empty\n"
+# define ERR_DUP_INFO_MSG "Error\nInformation is duplicated\n"
 
 enum e_error
 {
@@ -49,7 +50,8 @@ enum e_error
 	ERR_NO_PLAYER,
 	ERR_NOT_CLOSED_MAP,
 	ERR_DUP_PLAYER,
-	ERR_EMPTY_INFO
+	ERR_EMPTY_INFO,
+	ERR_DUP_INFO
 };
 
 #endif
