@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 18:55:09 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/12 22:15:06 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/13 09:59:51 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ static int	parse_loop(t_info *info, int fd)
 		free(line);
 		ft_split_free(split);
 	}
+	parse_map(info);
 	return (ret);
 }
 
@@ -96,5 +97,8 @@ int	parse(t_info *info, char *file_path)
 		return (ERR_CUB_FILE_OPEN);
 	info->map.map_data = NULL;
 	info->map.map_flag = false;
+	info->map.map_done = false;
+	info->map.width = 0;
+	info->map.height = 0;
 	return (parse_loop(info, fd));
 }
