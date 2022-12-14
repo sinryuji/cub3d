@@ -6,7 +6,7 @@
 #    By: kanghyki <kanghyki@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/01 15:23:01 by kanghyki          #+#    #+#              #
-#    Updated: 2022/12/14 12:14:02 by hyeongki         ###   ########.fr        #
+#    Updated: 2022/12/14 13:05:52 by kanghyki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,8 @@ SRC				=	main.c\
 					parse_03.c\
 					parse_04.c\
 					set_dir.c\
-					validation_surround_map.c
+					validation_surround_map.c\
+					shoot_pistol.c
 
 OBJ_DIR			=	obj
 OBJ				=	$(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))

@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 17:23:45 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/13 21:51:46 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/14 12:45:23 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ bool	validate_texture(void)
 	if (is_file_openable(TEX_DOOR_PATH)
 		&& is_file_openable(TEX_PISTOL_PATH)
 		&& is_file_openable(TEX_PISTOL_SHOOT_PATH)
-		&& is_file_openable(TEX_CROSSHAIR_PATH))
+		&& is_file_openable(TEX_CROSSHAIR_PATH)
+		&& is_file_openable(TEX_TARGET_PATH))
 		return (true);
 	return (false);
 }
@@ -67,6 +68,7 @@ void	load_texture(t_info *info)
 	load_xpm(info, info->texture.wall[T_EAST], info->map.east_path, &img);
 	load_xpm(info, info->texture.wall[T_OPEN], TEX_DOOR_PATH, &img);
 	load_xpm(info, info->texture.wall[T_CLOSE], TEX_DOOR_PATH, &img);
+	load_xpm(info, info->texture.wall[T_TARGET], TEX_TARGET_PATH, &img);
 	load_xpm(info, info->texture.pistol[P_STAND], TEX_PISTOL_PATH, &img);
 	load_xpm(info, info->texture.pistol[P_SHOOT], \
 			TEX_PISTOL_SHOOT_PATH, &img);

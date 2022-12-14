@@ -6,7 +6,7 @@
 /*   By: kanghyki <kanghyki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 08:33:05 by kanghyki          #+#    #+#             */
-/*   Updated: 2022/12/13 21:12:23 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/14 12:44:18 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define TEXTURE_H
 
 /* define wall */
-# define TEX_WALL_COUNT (6)
+# define TEX_WALL_COUNT (7)
 # define WALL_TEX_WIDTH (64)
 # define WALL_TEX_HEIGHT (64)
 
@@ -33,6 +33,7 @@
 # define TEX_PISTOL_PATH "textures/pistol.xpm"
 # define TEX_PISTOL_SHOOT_PATH "textures/pistol_shoot.xpm"
 # define TEX_CROSSHAIR_PATH "textures/crosshair.xpm"
+# define TEX_TARGET_PATH "textures/target.xpm"
 
 enum e_wall
 {
@@ -41,7 +42,8 @@ enum e_wall
 	T_WEST,
 	T_EAST,
 	T_OPEN,
-	T_CLOSE
+	T_CLOSE,
+	T_TARGET
 };
 
 enum e_pistol

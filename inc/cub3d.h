@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 21:02:43 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/14 12:06:15 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/14 13:08:06 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ enum e_map
 	WALL,
 	DOOR_OPEN,
 	DOOR_CLOSE,
+	TARGET,
 	E = 5,
 	W,
 	S,
@@ -75,6 +76,9 @@ void	interact_door(t_info *info);
 /* mouse_hook.c */
 int		mouse_move_hook(int x, int y, t_info *info);
 int		mouse_click_hook(int button, int x, int y, t_info *info);
+
+/* shoot_pistol.c */
+void	shoot_pistol(t_info *info);
 
 /* minimap.c */
 void	init_minimap(t_info *info);

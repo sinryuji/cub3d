@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 21:48:44 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/14 12:06:35 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/14 12:49:43 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	convert_data(t_info *info, int i, int j)
 
 	c = info->map.map_data->data[j];
 	target = &info->map.map[i][j];
-	if (c == '0' || c == '1' || c == '2' || c == '3')
+	if (c == '0' || c == '1' || c == '2' || c == '3' || c == '4')
 		*target = c - '0';
 	else if (c == 'E')
 		*target = E;

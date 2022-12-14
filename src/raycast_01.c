@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 19:43:43 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/13 13:07:06 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/14 12:51:14 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,8 @@ void	calc_ray_until_hit(t_info *info, bool(*condition)(int))
 static bool	is_watchable(int where)
 {
 	if (where == WALL
-		|| where == DOOR_CLOSE)
+		|| where == DOOR_CLOSE
+		|| where == TARGET)
 		return (true);
 	return (false);
 }
