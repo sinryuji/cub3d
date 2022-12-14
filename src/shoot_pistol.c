@@ -6,7 +6,7 @@
 /*   By: kanghyki <kanghyki@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 13:04:40 by kanghyki          #+#    #+#             */
-/*   Updated: 2022/12/14 13:05:14 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/14 13:36:03 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	shoot_pistol(t_info *info)
 
 static bool	is_not_empty(int where)
 {
-	if (where != EMPTY)
+	if (where != EMPTY && where != DOOR_OPEN)
 		return (true);
 	return (false);
 }
