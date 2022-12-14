@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 21:02:43 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/13 21:08:31 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/14 12:06:15 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,9 +126,10 @@ int		push_floor_color(int *target, int color);
 void	set_dir(t_info *info, int dir);
 
 /* validation_surround_map.c */
+int		check_surround(t_info *info);
 void	delete_map_visit(t_info *info);
 void	init_map_visit(t_info *info);
-int		check_surround(t_info *info, int x, int y);
+int		is_pos_surround(t_info *info, int x, int y);
 int		is_map_surround(t_info *info);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 21:48:44 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/14 11:52:00 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/14 12:06:35 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,14 +88,7 @@ int	validate_map(t_info *info)
 	ret = check_player(info);
 	if (ret != SUCCESS)
 		return (ret);
-	init_map_visit(info);
-	ret = is_map_surround(info);
-	delete_map_visit(info);
-	if (ret != SUCCESS)
-		return (ret);
-	init_map_visit(info);
-	ret = check_surround(info, info->pos_x, info->pos_y);
-	delete_map_visit(info);
+	ret = check_surround(info);
 	if (ret != SUCCESS)
 		return (ret);
 	return (SUCCESS);
