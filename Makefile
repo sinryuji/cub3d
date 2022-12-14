@@ -6,7 +6,7 @@
 #    By: kanghyki <kanghyki@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/01 15:23:01 by kanghyki          #+#    #+#              #
-#    Updated: 2022/12/13 16:28:44 by hyeongki         ###   ########.fr        #
+#    Updated: 2022/12/14 12:14:02 by hyeongki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,12 +63,6 @@ ifndef DEBUG
 else
 	CFLAGS	=	-g -Wall -Wextra -Werror
 endif
-
-ifndef FSANI
-	CFLAGS	=	-Wall -Wextra -Werror
-else
-	CFLAGS	=	-Wall -Wextra -Werror -fsanitize=address
-endif
 LDLIBS			=	-l ft -L $(LIBFT_DIR)\
 					-l mlx -L $(MLX_DIR) -framework OpenGL -framework AppKit
 RM				=	rm -rf
@@ -117,4 +111,4 @@ debug: fclean
 fsani: fclean
 	@make FSANI=1 all
 
-.PHONY: all clean fclean re debug fsani
+.PHONY: all clean fclean re debug
