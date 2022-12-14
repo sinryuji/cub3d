@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 23:54:01 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/13 16:25:56 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/14 11:37:13 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,20 +48,19 @@ int	push_map_data(t_info *info, char *data)
 	return (SUCCESS);
 }
 
-int	set_player(t_info *info, int i, int j, bool *found)
+int	set_player(t_info *info, int y, int x, bool *found)
 {
-	int	*player;
+	int	*what;
 
-	player = &info->map.map[i][j];
-	if (*player >= E && *player <= N)
+	what = &info->map.map[y][x];
+	if (*what >= E && *what <= N)
 	{
 		if (*found == true)
 			return (ERR_DUP_PLAYER);
-		info->pos_x = j;
-		info->pos_x = j;
-		info->pos_y = i;
-		set_dir(info, *player);
-		*player = 0;
+		info->pos_x = x;
+		info->pos_y = y;
+		set_dir(info, *what);
+		*what = 0;
 		*found = true;
 	}
 	return (SUCCESS);

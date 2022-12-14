@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 21:48:44 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/13 17:29:30 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/12/14 11:52:00 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void	convert_data(t_info *info, int i, int j)
 	c = info->map.map_data->data[j];
 	target = &info->map.map[i][j];
 	if (c == '0' || c == '1' || c == '2' || c == '3')
-		*target = ft_atoi(&c);
+		*target = c - '0';
 	else if (c == 'E')
 		*target = E;
 	else if (c == 'W')
@@ -56,22 +56,22 @@ static void	convert_data(t_info *info, int i, int j)
 
 int	check_player(t_info *info)
 {
-	int		i;
-	int		j;
+	int		y;
+	int		x;
 	bool	found;
 
-	i = 0;
+	y = 0;
 	found = false;
-	while (i < info->map.height)
+	while (y < info->map.height)
 	{
-		j = 0;
-		while (j < info->map.width)
+		x = 0;
+		while (x < info->map.width)
 		{
-			if (set_player(info, i, j, &found) != SUCCESS)
+			if (set_player(info, y, x, &found) != SUCCESS)
 				return (ERR_DUP_PLAYER);
-			j++;
+			x++;
 		}
-		i++;
+		y++;
 	}
 	if (found == false)
 		return (ERR_NO_PLAYER);
