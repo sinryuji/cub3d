@@ -6,7 +6,7 @@
 /*   By: kanghyki <kanghyki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 14:39:49 by kanghyki          #+#    #+#             */
-/*   Updated: 2022/12/13 22:04:54 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/14 13:39:15 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ static int	get_minimap_color(t_info *info, int x, int y)
 		what = info->map.map[(int)pos_y][(int)pos_x];
 	if ((int)info->pos_y == (int)pos_y && (int)info->pos_x == (int)pos_x)
 		return (MM_PLAYER_COLOR);
+	else if (what == TARGET)
+		return (MM_TARGET_COLOR);
 	else if (what == DOOR_OPEN)
 		return (MM_DOOR_OPEN_COLOR);
 	else if (what == DOOR_CLOSE)

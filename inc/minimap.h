@@ -6,7 +6,7 @@
 /*   By: kanghyki <kanghyki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 20:50:25 by kanghyki          #+#    #+#             */
-/*   Updated: 2022/12/13 22:04:38 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/14 13:40:15 by kanghyki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@
 
 # define MM_PLAYER_COLOR (0x66e5c07b)
 # define MM_EMPTY (0xFF000000)
+
+# define MM_TARGET_COLOR (0x66d73925)
 
 typedef struct s_minimap
 {
