@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 21:44:07 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/12/12 16:09:36 by kanghyki         ###   ########.fr       */
+/*   Updated: 2022/12/14 12:31:50 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,9 +82,9 @@ static int	get_wall_texture_color(t_info *info, int index)
 	else if (info->raycast.hit_stuff == DOOR_OPEN)
 		ret = info->texture.wall[T_NORTH][index];
 	else if (info->raycast.side == 1 && info->raycast.step_y == 1)
-		ret = info->texture.wall[T_NORTH][index];
-	else if (info->raycast.side == 1 && info->raycast.step_y == -1)
 		ret = info->texture.wall[T_SOUTH][index];
+	else if (info->raycast.side == 1 && info->raycast.step_y == -1)
+		ret = info->texture.wall[T_NORTH][index];
 	else if (info->raycast.side == 0 && info->raycast.step_x == 1)
 		ret = info->texture.wall[T_EAST][index];
 	else if (info->raycast.side == 0 && info->raycast.step_x == -1)
